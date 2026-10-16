@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# TODO(domain): update to the real domain before launch.
+Sitemap: https://santaandsol.example/sitemap-index.xml
