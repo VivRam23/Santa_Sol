@@ -1,0 +1,23 @@
+{
+  "name": "santa-sol",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Santa & Sol booking page: Christmas portraits at sunset with a barefoot Santa, by Sol Photography.",
+  "engines": {
+    "node": ">=20.3.0"
+  },
+  "scripts": {
+    "tokens": "node scripts/build-tokens.mjs",
+    "dev": "npm run tokens && astro dev",
+    "build": "npm run tokens && astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "3.3.1",
+    "@tailwindcss/vite": "4.1.4",
+    "astro": "5.7.13",
+    "tailwindcss": "4.1.4"
+  }
+}

@@ -1,0 +1,74 @@
+/* Santa & Sol — generated from design/tokens.json by scripts/build-tokens.mjs. Do not edit by hand. */
+/* Source: Iris visual direction F, approved Oct 16 2026 */
+
+:root {
+  --ss-red-600: #9E2A2F; /* Santa red. Sampled from Santa's striped shirt, deepened for print. 7.0:1 on linen. */
+  --ss-red-700: #84222A; /* Pressed/hover state of Santa red. */
+  --ss-red-500: #B8343B; /* Santa red for dark backgrounds (buttons only, with linen text 5.5:1). */
+  --ss-red-300: #E0767B; /* Santa red as text on dark backgrounds (5.8:1). */
+  --ss-linen: #FBF8F3; /* Lightest ground: cards, flyers, text on red. */
+  --ss-haze: #F3EDE4; /* Default page ground, the hazy cream sky of the October shoot. */
+  --ss-sand: #D8C3A5; /* Hairlines and dividers only. Never text (1.6:1 on linen). */
+  --ss-ink: #2E2621; /* Body and headline text. 14:1 on linen. */
+  --ss-ink-muted: #6B5848; /* Secondary text, captions, eyebrows. 6.4:1 on linen. */
+  --ss-sage: #8C8F74; /* Umbrella sage. Decorative fills and large shapes only (3.2:1). */
+  --ss-sage-deep: #5C5F4A; /* Sage that can carry text (6.2:1 on linen). */
+  --ss-night: #1E1916; /* Dark-mode ground. */
+  --ss-night-raised: #2A2320; /* Dark-mode cards. */
+  --ss-night-line: #4A3F38; /* Dark-mode hairlines. */
+  --ss-haze-muted-dark: #C2B2A1; /* Secondary text on dark (8.4:1). */
+  --ss-surface: var(--ss-haze); /* Page background. */
+  --ss-surface-raised: var(--ss-linen); /* Cards, flyers, post panels. */
+  --ss-text: var(--ss-ink); /* Body and headlines on surface or surface-raised. */
+  --ss-text-muted: var(--ss-ink-muted); /* Captions, eyebrows, under-button lines. */
+  --ss-text-accent: var(--ss-red-600); /* The italic half of a headline and the ampersand. Never body copy. */
+  --ss-action: var(--ss-red-600); /* Primary button fill. One per layout. */
+  --ss-action-hover: var(--ss-red-700); /* Primary button hover and pressed. */
+  --ss-on-action: var(--ss-linen); /* Text on action and on poster-ground. */
+  --ss-poster-ground: var(--ss-red-600); /* Full-red poster and café-board flyer ground. */
+  --ss-stripe-a: var(--ss-red-600); /* Stripe band, red bands. */
+  --ss-stripe-b: var(--ss-linen); /* Stripe band, light bands. */
+  --ss-border: var(--ss-sand); /* Hairlines, swatch outlines, input borders (decorative). */
+  --ss-support: var(--ss-sage); /* Decorative support colour: dividers, small shapes. Never text. */
+  --ss-space-1: 4px; /* Hairline gaps, icon to label. */
+  --ss-space-2: 8px; /* Tight stacks: button to under-button line. */
+  --ss-space-3: 12px; /* Default gap inside cards. */
+  --ss-space-4: 16px; /* Paragraph spacing, flyer inner gaps. */
+  --ss-space-6: 24px; /* Gap between photos; stripe band height on posts. */
+  --ss-space-8: 32px; /* Flyer and post padding. */
+  --ss-space-12: 48px; /* Section padding on the booking page. */
+  --ss-space-18: 72px; /* Page margins on desktop. */
+  --ss-radius-photo: 6px; /* Full-frame photos. The only corner photos get. */
+  --ss-radius-card: 10px; /* Cards and logo panels. */
+  --ss-radius-tile: 20px; /* App icon and symbol tile (128px). */
+  --ss-radius-pill: 999px; /* Buttons and badges. */
+  --ss-shadow-print: 0 10px 30px rgba(46, 38, 33, 0.12); /* Mockups only, to lift a flyer or post off the ground. Never on photos. */
+  --ss-font-display: "Fraunces Soft", Fraunces, Georgia, serif;
+  --ss-font-sans: Jost, "Avenir Next", "Century Gothic", system-ui, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --ss-surface: var(--ss-night);
+    --ss-surface-raised: var(--ss-night-raised);
+    --ss-text: var(--ss-haze);
+    --ss-text-muted: var(--ss-haze-muted-dark);
+    --ss-text-accent: var(--ss-red-300);
+    --ss-action: var(--ss-red-500);
+    --ss-action-hover: var(--ss-red-600);
+    --ss-stripe-a: var(--ss-red-500);
+    --ss-border: var(--ss-night-line);
+  }
+}
+
+:root[data-theme='dark'] {
+  --ss-surface: var(--ss-night);
+  --ss-surface-raised: var(--ss-night-raised);
+  --ss-text: var(--ss-haze);
+  --ss-text-muted: var(--ss-haze-muted-dark);
+  --ss-text-accent: var(--ss-red-300);
+  --ss-action: var(--ss-red-500);
+  --ss-action-hover: var(--ss-red-600);
+  --ss-stripe-a: var(--ss-red-500);
+  --ss-border: var(--ss-night-line);
+}
