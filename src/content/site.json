@@ -1,0 +1,20 @@
+{
+  "name": "Santa & Sol",
+  "tagline": "Costa Rica Christmas Portraits",
+  "endorsement": "by Sol Photography",
+  "price": 95,
+  "currency": "USD",
+  "bookingUrl": "#TODO-booking",
+  "waitlistEndpoint": "",
+  "whatsappNumber": "+506 6258 1632",
+  "whatsappLink": "https://wa.me/50662581632",
+  "instagramHandle": "@sol__photography_",
+  "instagramUrl": "https://instagram.com/sol__photography_",
+  "photographerUrl": "https://solphotography.net",
+  "photographerDomain": "solphotography.net",
+  "seo": {
+    "title": "Santa & Sol · Christmas portraits at sunset with a barefoot Santa",
+    "description": "A private sunset session with a barefoot Santa on your favorite beach. Five professional photos in your online gallery within 48 hours, ready to turn into cards and send to family back home.",
+    "ogImage": "/images/og.jpg"
+  }
+}
