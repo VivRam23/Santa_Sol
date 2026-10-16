@@ -1,0 +1,29 @@
+---
+// One stroke icon set (brand: 24px grid, 1.5px stroke, round caps and joins, ink or Santa red).
+interface Props {
+  name: 'lock' | 'feet' | 'sunset' | 'camera' | 'clock' | 'mail' | 'check';
+  size?: number;
+  class?: string;
+}
+const { name, size = 24, class: className = '' } = Astro.props;
+---
+<svg
+  aria-hidden="true"
+  width={size}
+  height={size}
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class:list={['flex-none text-accent', className]}
+>
+  {name === 'lock' && (<><rect x="5" y="11" width="14" height="9" rx="2" /><path d="M8 11V8a4 4 0 0 1 8 0v3" /></>)}
+  {name === 'feet' && (<><path d="M8 21c-2 0-3-1.6-3-4 0-3 1.2-7 3.5-7S11 13 11 16s-1 5-3 5z" /><circle cx="7" cy="6" r="1" /><circle cx="9.5" cy="5" r="1" /><circle cx="12" cy="6" r="1" /><path d="M16 15c-1.6 0-2.5-1.3-2.5-3.2 0-2.4 1-5.6 2.8-5.6S19 8.8 19 11.2 18 15 16 15z" /></>)}
+  {name === 'sunset' && (<><path d="M6 16a6 6 0 0 1 12 0" /><path d="M3 16h18M5 19.5h14" /><path d="M12 5v2M5.6 7.6l1.4 1.4M18.4 7.6 17 9" /></>)}
+  {name === 'camera' && (<><path d="M4 8h3l2-3h6l2 3h3v11H4z" /><circle cx="12" cy="13" r="3.5" /></>)}
+  {name === 'clock' && (<><circle cx="12" cy="12" r="8.5" /><path d="M12 7.5V12l3 2" /></>)}
+  {name === 'mail' && (<><rect x="3.5" y="6" width="17" height="12" rx="1.5" /><path d="m4 7 8 6 8-6" /></>)}
+  {name === 'check' && <path d="M5 12.5l4.5 4.5L19 7.5" />}
+</svg>

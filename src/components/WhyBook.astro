@@ -1,0 +1,31 @@
+---
+import Photo from './Photo.astro';
+import Rich from './Rich.astro';
+import copy from '../content/booking.json';
+const w = copy.why;
+---
+<section class="bg-raised">
+  <div class="mx-auto flex max-w-[1296px] flex-col gap-7 py-14 md:gap-12 md:px-[72px] md:py-24">
+    <h2 class="px-4 text-display-md md:px-0 md:text-display-lg">{w.headline}</h2>
+    <ol class="m-0 grid list-none gap-6 p-0 px-4 md:grid-cols-3 md:gap-10 md:px-0">
+      {w.points.map((pt) => (
+        <li class="flex flex-col gap-2 border-t border-line pt-5 md:gap-3 md:pt-6">
+          <h3 class="text-2xl leading-[1.15] md:text-[28px] md:leading-[1.1]">{pt.title}</h3>
+          <p><Rich text={pt.body} /></p>
+        </li>
+      ))}
+    </ol>
+    <!-- Full-frame gallery at each photo's own ratio. Scrolls sideways on phones. -->
+    <div
+      class="flex snap-x snap-mandatory items-end gap-3 overflow-x-auto px-4 md:flex-wrap md:gap-6 md:overflow-visible md:px-0"
+      role="region"
+      aria-label="Sample photos"
+      tabindex="0"
+    >
+      {w.gallery.map((g) => (
+        <Photo file={g.image} alt={g.alt} class="h-[300px] w-auto flex-none snap-start md:h-[400px]" />
+      ))}
+      <div class="placeholder h-[300px] w-[200px] flex-none snap-start md:h-[400px] md:min-w-[200px] md:flex-1">{w.galleryPlaceholder}</div>
+    </div>
+  </div>
+</section>

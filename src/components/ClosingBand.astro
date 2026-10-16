@@ -1,0 +1,29 @@
+---
+// The one red section on the page (brand v1.1), with stripe band 3 of 3 on its top edge.
+import Headline from './Headline.astro';
+import Logo from './Logo.astro';
+import copy from '../content/booking.json';
+import site from '../content/site.json';
+const c = copy.closing;
+---
+<section class="closing bg-poster text-[var(--ss-linen)]">
+  <div aria-hidden="true" class="stripe-on-red h-3 md:h-[18px]"></div>
+  <div class="mx-auto flex max-w-[1100px] flex-col items-center gap-[18px] px-4 pb-[72px] pt-16 text-center md:gap-6 md:px-[72px] md:pb-28 md:pt-[104px]">
+    <Logo file="symbol-sun-reversed.svg" alt="" decorative class="w-16 md:w-[88px]" />
+    <Headline text={c.headline} accent={c.headlineAccent} class="text-[36px] leading-[1.05] md:text-[54px] md:leading-[1.02]" />
+    <p class="md:text-body-lg">{c.body}</p>
+    <a class="btn btn-linen btn-lg w-full md:w-auto" href={site.bookingUrl} data-event="cta_click" data-section="closing">{c.button}</a>
+    <p class="text-small">{c.under}</p>
+  </div>
+</section>
+
+<style>
+  /* Linen everywhere on red, the italic half included (7.0:1). */
+  .closing :global(h2),
+  .closing :global(h2 em) {
+    color: var(--ss-linen);
+  }
+  .closing :global(:focus-visible) {
+    outline-color: var(--ss-linen);
+  }
+</style>

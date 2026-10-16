@@ -1,0 +1,18 @@
+---
+import copy from '../content/booking.json';
+const h = copy.how;
+---
+<section class="mx-auto flex max-w-[1296px] flex-col gap-6 px-4 py-14 md:gap-12 md:px-[72px] md:py-24">
+  <h2 class="text-display-md md:text-display-lg">{h.headline}</h2>
+  <ol class="m-0 grid list-none gap-5 p-0 md:grid-cols-3 md:gap-10">
+    {h.steps.map((step, i) => (
+      <li class="flex gap-4 md:flex-col md:gap-3">
+        <span aria-hidden="true" class="w-9 flex-none font-display text-[40px] font-[650] italic leading-none text-accent md:w-auto md:text-[64px]">{i + 1}</span>
+        <div class="flex flex-col gap-1 md:gap-3">
+          <h3 class="text-xl leading-[1.2] md:text-2xl md:leading-[1.15]">{step.title}</h3>
+          <p>{step.body}</p>
+        </div>
+      </li>
+    ))}
+  </ol>
+</section>
