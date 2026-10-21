@@ -58,17 +58,20 @@ Each image is checked at build time. If a file is missing, a labelled placeholde
 
 | File | What | Status |
 | --- | --- | --- |
+| `public/images/family-santa.jpg` | Hero, in the arch (DSCF0567) | Added |
 | `public/images/santa-bench.jpg` | Santa on the bench, mirrored to face the text | Added |
-| `public/images/family-santa.jpg` | Hero (the arch) and gallery | **To add** from Iris's design system › Photography |
-| `public/images/couple-tree.jpg` | Gallery and offer | **To add** |
-| `public/images/couple-dog.jpg` | The wide band above the dates | **To add**. Landscape, full resolution, at least 1440 × 720 |
-| `public/images/laurel.jpg` | Meet your photographer | **To add** from the October shoot |
-| `public/images/og.jpg` | Social share image, 1200 × 630 | **To add** |
+| `public/images/kids-santa-bench.jpg`, `kids-tree.jpg`, `girl-santa.jpg`, `couple-dog-tree.jpg`, `santa-dogs.jpg` | "Why families book" gallery | Added |
+| `public/images/couple-dog.jpg` | The wide band above the beaches (DSCF0749, landscape) | Added |
+| `public/images/couple-tree.jpg` | Offer section (DSCF0759) | Added |
+| `public/images/og.jpg` | Social share image, 1200 × 630, cropped from DSCF0749 | Added |
+| `public/images/laurel.jpg` | Meet your photographer | **To add**: a photo of Laurel at work |
 | `public/brand/santa-sol-stacked.svg` | Desktop header, footer | **To add** from Iris's design system › Logos |
 | `public/brand/santa-sol-horizontal.svg` | Mobile header | **To add** |
 | `public/brand/symbol-striped-sun.svg` | FAQ mark | **To add** |
 | `public/brand/symbol-sun-reversed.svg` | Closing red band | **To add** |
 | `public/favicon.svg` | Browser tab | **To add** (`favicon.svg` in the design system) |
+
+Photos come from the October promo shoot by Laurel (Sol Photography), exported at 1600 px on the long side. Camera data (including any GPS location) is stripped before they go in the repo. To swap a photo, replace the file with the same name; to add one to the gallery, add it to `why.gallery` in `src/content/booking.json`.
 
 Use the logo files exactly as supplied. Iris's rules: never retype or redraw the mark.
 
@@ -132,7 +135,7 @@ Brand (Iris):
 - [ ] Ask Laurel for a landscape "empty set" photo for the wide band.
 
 Build:
-- [ ] Photos into `public/images/` (see the table above).
+- [x] Photos from the promo shoot (Oct 20). Still to add: a photo of Laurel.
 - [ ] Booking tool: Calendly + PayPal, or SimplyBook + Tilopay. Then the three Calendly links in `src/content/beaches.json`. (If SimplyBook is chosen, `BeachPicker.astro` swaps the Calendly script for SimplyBook's widget.)
 - [ ] Waitlist form service and `waitlistEndpoint`.
 - [ ] Analytics snippet.
