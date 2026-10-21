@@ -80,7 +80,7 @@ Use the logo files exactly as supplied. Iris's rules: never retype or redraw the
 - Title, description, canonical and Open Graph tags are set in `src/content/site.json`.
 - `sitemap.xml` comes from `@astrojs/sitemap`, and `public/robots.txt` points to it.
 - Structured data covers the business (`LocalBusiness`), each open session date (`Event`), and the FAQ (`FAQPage`). Answers still marked TBD are left out of the FAQ data.
-- Set the real domain with `SITE_URL`, or in `astro.config.mjs`, and in `public/robots.txt`.
+- The domain is **santasol.fun**, set in `astro.config.mjs` and `public/robots.txt`. Use `SITE_URL` to build for a staging address.
 
 ## Deploying
 
@@ -122,6 +122,6 @@ Build:
 - [ ] Booking tool and `bookingUrl`.
 - [ ] Waitlist form service and `waitlistEndpoint`.
 - [ ] Analytics snippet.
-- [ ] Real domain.
+- [x] Domain: santasol.fun (registered at GoDaddy, Oct 20). Point its DNS at the host when we deploy.
 - [ ] Image optimisation: serve AVIF or WebP once the full-resolution photos are in. Astro's `<Image>` can do this.
 - [ ] Commit `package-lock.json` and switch CI to `npm ci`.
