@@ -1,14 +1,32 @@
 ---
 import Logo from './Logo.astro';
 import copy from '../content/booking.json';
+import book from '../content/book.json';
+import site from '../content/site.json';
+
+interface Props {
+  /** 'home' shows the booking button; 'book' shows a link back to the homepage. */
+  variant?: 'home' | 'book';
+}
+const { variant = 'home' } = Astro.props;
+const homeHref = variant === 'home' ? '#top' : '/';
 ---
 <!-- Stripe band 1 of 3: the top border -->
 <div aria-hidden="true" class="stripe h-3 md:h-[18px]"></div>
-<header class="mx-auto flex max-w-[1296px] items-center justify-center px-4 py-3.5 md:justify-between md:px-[72px] md:py-5">
-  <a href="#top" class="block" aria-label={copy.header.logoAlt}>
-    <Logo file="santa-sol-horizontal.svg" alt={copy.header.logoAlt} class="w-[220px] md:hidden" />
-    <Logo file="santa-sol-stacked.svg" alt={copy.header.logoAlt} class="hidden h-[104px] w-auto md:block" />
+<header class:list={[
+  'mx-auto flex max-w-[1296px] items-center gap-4 px-4 py-3.5 md:justify-between md:px-[72px] md:py-5',
+  variant === 'home' ? 'justify-center' : 'justify-between',
+]}>
+  <a href={homeHref} class="block" aria-label={copy.header.logoAlt}>
+    <Logo file="santa-sol-horizontal.svg" alt={copy.header.logoAlt} class:list={[variant === 'home' ? 'w-[220px]' : 'w-[168px]', 'md:hidden']} />
+    <Logo file="santa-sol-stacked.svg" alt={copy.header.logoAlt} class:list={['hidden w-auto md:block', variant === 'home' ? 'h-[104px]' : 'h-[88px]']} />
   </a>
-  <!-- On phones the sticky bar does this job, so the header keeps the logo only. -->
-  <a class="btn hidden md:inline-flex" href="#dates" data-event="cta_click" data-section="header">{copy.header.button}</a>
+  {variant === 'home' ? (
+    <a class="btn hidden md:inline-flex" href={site.bookingUrl} data-event="cta_click" data-section="header">{copy.header.button}</a>
+  ) : (
+    <a href="/" class="inline-flex min-h-11 items-center font-semibold">
+      <span class="md:hidden">{book.backShort}</span>
+      <span class="hidden md:inline">{book.back}</span>
+    </a>
+  )}
 </header>
