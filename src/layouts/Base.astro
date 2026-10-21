@@ -2,12 +2,21 @@
 import '../styles/global.css';
 import site from '../content/site.json';
 import copy from '../content/booking.json';
+import beachData from '../content/beaches.json';
 import { asset } from '../lib/assets';
 import { hasMarker, plain } from '../lib/rich';
 
+interface Props {
+  /** Which page: the homepage carries the FAQ data and preloads the hero photo. */
+  page?: 'home' | 'book';
+  title?: string;
+  description?: string;
+}
+const { page = 'home', title = site.seo.title, description = site.seo.description } = Astro.props;
+
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const ogImage = asset('images', site.seo.ogImage.replace('/images/', ''));
-const hero = asset('images', copy.hero.image);
+const hero = page === 'home' ? asset('images', copy.hero.image) : null;
 
 // Structured data: the business, each open session date as an Event, and the FAQ.
 // FAQ answers still holding a [TBD] marker are left out until they are final.
@@ -22,22 +31,25 @@ const business = {
   areaServed: ['Tamarindo', 'Playa Grande', 'Flamingo'].map((name) => ({ '@type': 'Place', name })),
   priceRange: `$${site.price}`,
 };
-const events = copy.dates.rows.map((r) => ({
-  '@context': 'https://schema.org',
-  '@type': 'Event',
-  name: `${site.name} sunset session, ${r.beach}`,
-  startDate: r.isoDate,
-  eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
-  eventStatus: 'https://schema.org/EventScheduled',
-  location: { '@type': 'Place', name: `${r.beach}, Guanacaste, Costa Rica` },
-  organizer: { '@type': 'Organization', name: site.name, url: Astro.site?.href },
-  offers: {
-    '@type': 'Offer',
-    price: site.price,
-    priceCurrency: site.currency,
-    url: site.bookingUrl.startsWith('http') ? site.bookingUrl : canonical,
-  },
-}));
+const bookUrl = new URL(site.bookingUrl, Astro.site).href;
+const events = beachData.beaches.flatMap((b) =>
+  b.dates.map((dt) => ({
+    '@context': 'https://schema.org',
+    '@type': 'Event',
+    name: `${site.name} sunset session, ${b.name}`,
+    startDate: dt.iso,
+    eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+    eventStatus: 'https://schema.org/EventScheduled',
+    location: { '@type': 'Place', name: `${b.name}, Guanacaste, Costa Rica` },
+    organizer: { '@type': 'Organization', name: site.name, url: Astro.site?.href },
+    offers: {
+      '@type': 'Offer',
+      price: site.price,
+      priceCurrency: site.currency,
+      url: `${bookUrl}#${b.id}`,
+    },
+  })),
+);
 const faq = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -45,23 +57,23 @@ const faq = {
     .filter((i) => !hasMarker(i.a))
     .map((i) => ({ '@type': 'Question', name: i.q, acceptedAnswer: { '@type': 'Answer', text: i.a } })),
 };
-const jsonLd = JSON.stringify([business, ...events, faq]);
+const jsonLd = JSON.stringify(page === 'home' ? [business, ...events, faq] : [business, ...events]);
 ---
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{site.seo.title}</title>
-    <meta name="description" content={site.seo.description} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     <meta name="color-scheme" content="light dark" />
     <meta name="theme-color" content="#F3EDE4" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#1E1916" media="(prefers-color-scheme: dark)" />
 
     <meta property="og:type" content="website" />
-    <meta property="og:title" content={site.seo.title} />
-    <meta property="og:description" content={site.seo.description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     {ogImage && <meta property="og:image" content={new URL(ogImage.src, Astro.site).href} />}
     <meta name="twitter:card" content="summary_large_image" />

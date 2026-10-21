@@ -4,7 +4,7 @@
   "endorsement": "by Sol Photography",
   "price": 95,
   "currency": "USD",
-  "bookingUrl": "#TODO-booking",
+  "bookingUrl": "/book",
   "waitlistEndpoint": "",
   "whatsappNumber": "+506 6258 1632",
   "whatsappLink": "https://wa.me/50662581632",

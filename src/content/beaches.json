@@ -1,0 +1,30 @@
+{
+  "_howTo": "One entry per beach. To open a new weekend, add a date to each beach's `dates` list (and its hours in that beach's Calendly event). Remove a date once it has passed. The first date in each list shows as 'Next sunset' on the homepage.",
+  "sessionWindow": "4 – 6 pm",
+  "beaches": [
+    {
+      "id": "flamingo",
+      "name": "Flamingo",
+      "day": "Fridays",
+      "dogs": true,
+      "dates": [{ "label": "Nov 13", "iso": "2026-11-13" }],
+      "calendlyUrl": ""
+    },
+    {
+      "id": "playa-grande",
+      "name": "Playa Grande",
+      "day": "Saturdays",
+      "dogs": false,
+      "dates": [{ "label": "Nov 14", "iso": "2026-11-14" }],
+      "calendlyUrl": ""
+    },
+    {
+      "id": "tamarindo",
+      "name": "Tamarindo",
+      "day": "Sundays",
+      "dogs": true,
+      "dates": [{ "label": "Nov 15", "iso": "2026-11-15" }],
+      "calendlyUrl": ""
+    }
+  ]
+}

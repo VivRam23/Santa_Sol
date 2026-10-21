@@ -2,6 +2,7 @@
 import Headline from './Headline.astro';
 import Photo from './Photo.astro';
 import copy from '../content/booking.json';
+import site from '../content/site.json';
 const h = copy.hero;
 ---
 <section id="top" class="mx-auto grid max-w-[1296px] gap-5 px-4 pb-12 pt-3 md:grid-cols-[minmax(0,1fr)_minmax(300px,600px)] md:gap-x-14 md:gap-y-6 md:px-[72px] md:pb-20 md:pt-6">
@@ -21,7 +22,7 @@ const h = copy.hero;
   <div class="flex flex-col gap-6 md:col-start-1 md:row-start-2 md:self-start">
     <p class="text-body-lg md:max-w-[520px]">{h.subhead}</p>
     <div class="flex flex-col gap-2 md:items-start">
-      <a class="btn btn-lg" href="#dates" data-event="cta_click" data-section="hero">{h.button}</a>
+      <a class="btn btn-lg" href={site.bookingUrl} data-event="cta_click" data-section="hero">{h.button}</a>
       <p class="under text-center md:text-left">{h.under}</p>
     </div>
   </div>

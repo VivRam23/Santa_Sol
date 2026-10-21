@@ -92,12 +92,9 @@
     "santaOptionalUnder": "Skipping Santa? The Christmas props still come along.",
     "bandImage": "couple-dog.jpg",
     "bandAlt": "A couple and their dog beside a beach Christmas tree at sunset",
-    "columns": ["Date", "Beach", "Session window"],
-    "rows": [
-      { "date": "Fri, Nov 13", "isoDate": "2026-11-13", "beach": "Flamingo", "window": "[TBD]" },
-      { "date": "Sat, Nov 14", "isoDate": "2026-11-14", "beach": "Playa Grande", "window": "[TBD]" },
-      { "date": "Sun, Nov 15", "isoDate": "2026-11-15", "beach": "Tamarindo", "window": "[TBD]" }
-    ],
+    "columns": ["Beach", "Day", "Next sunset"],
+    "seeTimes": "See times",
+    "nextLabel": "next",
     "pattern": "Every weekend we open: Friday in Flamingo, Saturday at Playa Grande, Sunday in Tamarindo.",
     "note": "Slots run 10 minutes apart. Dogs welcome in Tamarindo and Flamingo (Fri & Sun).",
     "button": "Book your Santa photos",
