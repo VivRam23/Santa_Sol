@@ -1,11 +1,9 @@
 {
   "_source": "Peitho's 'Santa & Sol — Booking Page Copy' (rev 130, Oct 16 2026) plus Viv's edits on the approved v3 design. Text in [TBD: …], [NEEDS PROOF] or [ASSUMPTION] renders as a visible staging marker. **Double asterisks** render bold.",
-
   "header": {
     "logoAlt": "Santa & Sol, Costa Rica Christmas Portraits",
     "button": "Book Santa photos"
   },
-
   "hero": {
     "eyebrow": "Tamarindo · Playa Grande · Flamingo",
     "headline": "A Christmas photo",
@@ -14,21 +12,37 @@
     "button": "Book your Santa photos · $95",
     "under": "Private sunset slot, 5 high-res photos",
     "image": "family-santa.jpg",
-    "imageAlt": "A family laughing with a barefoot Santa on the beach at sunset in Guanacaste"
+    "imageAlt": "A family of five with a barefoot Santa in a striped shirt, under the palms on the beach at sunset"
   },
-
   "included": {
     "label": "What's included",
     "items": [
-      { "icon": "lock", "text": "Private mini session" },
-      { "icon": "feet", "text": "Barefoot Santa" },
-      { "icon": "sunset", "text": "Golden hour" },
-      { "icon": "camera", "text": "5 high-res photos" },
-      { "icon": "clock", "text": "Gallery in 48 hours" },
-      { "icon": "mail", "text": "Christmas cards available" }
+      {
+        "icon": "lock",
+        "text": "Private mini session"
+      },
+      {
+        "icon": "feet",
+        "text": "Barefoot Santa"
+      },
+      {
+        "icon": "sunset",
+        "text": "Golden hour"
+      },
+      {
+        "icon": "camera",
+        "text": "5 high-res photos"
+      },
+      {
+        "icon": "clock",
+        "text": "Gallery in 48 hours"
+      },
+      {
+        "icon": "mail",
+        "text": "Christmas cards available"
+      }
     ]
   },
-
   "session": {
     "headline": "Santa saved",
     "headlineAccent": "you a seat",
@@ -38,7 +52,6 @@
     "image": "santa-bench.jpg",
     "imageAlt": "Santa in a striped shirt, straw hat and bare feet, sitting on a bench beside a dressed Christmas tree on the beach at sunset"
   },
-
   "why": {
     "headline": "Why families book",
     "points": [
@@ -56,21 +69,46 @@
       }
     ],
     "gallery": [
-      { "image": "family-santa.jpg", "alt": "A family with a barefoot Santa under palms at sunset" },
-      { "image": "couple-tree.jpg", "alt": "A couple by a beach Christmas tree in a copper tub at dusk" }
+      {
+        "image": "kids-santa-bench.jpg",
+        "alt": "Three children sitting on a bench beside a barefoot Santa, with the sea behind them"
+      },
+      {
+        "image": "kids-tree.jpg",
+        "alt": "A boy and a girl decorating a Christmas tree on the beach at golden hour"
+      },
+      {
+        "image": "girl-santa.jpg",
+        "alt": "A little girl in a Santa hat sitting with Santa under a beach umbrella"
+      },
+      {
+        "image": "couple-dog-tree.jpg",
+        "alt": "A couple and their black dog beside a beach Christmas tree at sunset"
+      },
+      {
+        "image": "santa-dogs.jpg",
+        "alt": "Santa in a striped shirt and Santa hat with two dogs on the beach"
+      }
     ],
-    "galleryPlaceholder": "[TBD] 2 to 4 more photos from the October shoot, one with a dog, for a gallery of 4 to 6"
+    "galleryPlaceholder": ""
   },
-
   "how": {
     "headline": "How it works",
     "steps": [
-      { "title": "Book your sunset slot.", "body": "Pick a beach and date. $95 per family." },
-      { "title": "Meet Santa at sunset.", "body": "Eight relaxed minutes with Santa, the kids and the dog, in golden-hour light. Arrive 15 minutes early to settle in." },
-      { "title": "Get your photos within 48 hours.", "body": "Five professional photos land in your online gallery. Order extra photos or cards right from there." }
+      {
+        "title": "Book your sunset slot.",
+        "body": "Pick a beach and date. $95 per family."
+      },
+      {
+        "title": "Meet Santa at sunset.",
+        "body": "Eight relaxed minutes with Santa, the kids and the dog, in golden-hour light. Arrive 15 minutes early to settle in."
+      },
+      {
+        "title": "Get your photos within 48 hours.",
+        "body": "Five professional photos land in your online gallery. Order extra photos or cards right from there."
+      }
     ]
   },
-
   "photographer": {
     "eyebrow": "Meet your photographer",
     "headline": "Laurel,",
@@ -83,7 +121,6 @@
     "imageAlt": "Laurel of Sol Photography at work on the beach",
     "imagePlaceholder": "[TBD] Photo of Laurel at work, from the October shoot"
   },
-
   "dates": {
     "headline": "Pick your beach.",
     "headlineAccent": "Santa's flexible.",
@@ -91,8 +128,12 @@
     "santaOptional": "Santa's optional. The sunset isn't.",
     "santaOptionalUnder": "Skipping Santa? The Christmas props still come along.",
     "bandImage": "couple-dog.jpg",
-    "bandAlt": "A couple and their dog beside a beach Christmas tree at sunset",
-    "columns": ["Beach", "Day", "Next sunset"],
+    "bandAlt": "A couple and their dog by a dressed Christmas tree and fringed umbrella on the beach at sunset",
+    "columns": [
+      "Beach",
+      "Day",
+      "Next sunset"
+    ],
     "seeTimes": "See times",
     "nextLabel": "next",
     "pattern": "Every weekend we open: Friday in Flamingo, Saturday at Playa Grande, Sunday in Tamarindo.",
@@ -106,13 +147,18 @@
         "beach": "Preferred beach",
         "weekend": "Preferred weekend"
       },
-      "beaches": ["Tamarindo", "Playa Grande", "Flamingo"],
-      "weekends": ["[TBD: weekends to offer]"],
+      "beaches": [
+        "Tamarindo",
+        "Playa Grande",
+        "Flamingo"
+      ],
+      "weekends": [
+        "[TBD: weekends to offer]"
+      ],
       "button": "Tell me when new dates open",
       "success": "You're on the list. We'll WhatsApp you as soon as a new sunset opens."
     }
   },
-
   "offer": {
     "headline": "One price,",
     "headlineAccent": "everything included",
@@ -132,26 +178,57 @@
     "button": "Book your Santa photos",
     "under": "Private sunset slot, 5 high-res photos",
     "image": "couple-tree.jpg",
-    "imageAlt": "A couple by a beach Christmas tree in a copper tub at dusk"
+    "imageAlt": "A couple standing together by a Christmas tree on the beach at sunset"
   },
-
   "faq": {
     "headline": "Questions",
     "items": [
-      { "q": "When will we get our photos?", "a": "Your photos are in your online gallery within 48 hours of your session. For mailed cards, order from your gallery by [TBD: card service's last order date]." },
-      { "q": "$95 for five photos?", "a": "It's one flat price for a private slot, a barefoot Santa, a professional photographer and five finished photos. Extra photos and cards are optional." },
-      { "q": "Is 8 minutes enough?", "a": "It's your own booked slot, so the time with Santa is all yours. Long enough for Laurel to capture the photos you'll love, short enough that the kids don't get restless." },
-      { "q": "Can we bring the dog?", "a": "Yes, at our Tamarindo and Flamingo sessions (Fri & Sun)." },
-      { "q": "What if it rains?", "a": "December is dry season in Guanacaste. If we have to cancel a session for weather, we'll move you to another date. [TBD: confirm what happens if no date works]" },
-      { "q": "Will Santa be hot in that suit?", "a": "Very. He's from the North Pole. He's doing his best." },
-      { "q": "When should we arrive?", "a": "Please arrive 15 minutes before your slot to settle in and get ready. If you're running late, we'll try to fit you in at the end of the session, but we can't guarantee it." },
-      { "q": "Can we cancel or reschedule?", "a": "Sessions are paid in full when you book. If your plans change, we'll do our best to move you to another date, but we can't guarantee a new slot. Missed sessions aren't refunded." },
-      { "q": "Can cards be mailed to Canada or Europe?", "a": "[TBD: depends on where the card service mails to]" },
-      { "q": "How many people can come?", "a": "As many as you like. Bring the whole family." },
-      { "q": "What should we wear?", "a": "[TBD: Laurel's styling tips] [ASSUMPTION: worth adding]" }
+      {
+        "q": "When will we get our photos?",
+        "a": "Your photos are in your online gallery within 48 hours of your session. For mailed cards, order from your gallery by [TBD: card service's last order date]."
+      },
+      {
+        "q": "$95 for five photos?",
+        "a": "It's one flat price for a private slot, a barefoot Santa, a professional photographer and five finished photos. Extra photos and cards are optional."
+      },
+      {
+        "q": "Is 8 minutes enough?",
+        "a": "It's your own booked slot, so the time with Santa is all yours. Long enough for Laurel to capture the photos you'll love, short enough that the kids don't get restless."
+      },
+      {
+        "q": "Can we bring the dog?",
+        "a": "Yes, at our Tamarindo and Flamingo sessions (Fri & Sun)."
+      },
+      {
+        "q": "What if it rains?",
+        "a": "December is dry season in Guanacaste. If we have to cancel a session for weather, we'll move you to another date. [TBD: confirm what happens if no date works]"
+      },
+      {
+        "q": "Will Santa be hot in that suit?",
+        "a": "Very. He's from the North Pole. He's doing his best."
+      },
+      {
+        "q": "When should we arrive?",
+        "a": "Please arrive 15 minutes before your slot to settle in and get ready. If you're running late, we'll try to fit you in at the end of the session, but we can't guarantee it."
+      },
+      {
+        "q": "Can we cancel or reschedule?",
+        "a": "Sessions are paid in full when you book. If your plans change, we'll do our best to move you to another date, but we can't guarantee a new slot. Missed sessions aren't refunded."
+      },
+      {
+        "q": "Can cards be mailed to Canada or Europe?",
+        "a": "[TBD: depends on where the card service mails to]"
+      },
+      {
+        "q": "How many people can come?",
+        "a": "As many as you like. Bring the whole family."
+      },
+      {
+        "q": "What should we wear?",
+        "a": "[TBD: Laurel's styling tips] [ASSUMPTION: worth adding]"
+      }
     ]
   },
-
   "closing": {
     "headline": "Send a little sunshine home",
     "headlineAccent": "this Christmas.",
@@ -159,11 +236,9 @@
     "button": "Book your Santa photos",
     "under": "Private sunset slot, 5 high-res photos · Gallery in 48 hours"
   },
-
   "footer": {
     "line": "Santa & Sol, by Sol Photography"
   },
-
   "stickyBar": {
     "lead": "Still no Christmas photo?",
     "button": "Book your Santa photos · $95"
