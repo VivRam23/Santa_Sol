@@ -15,17 +15,19 @@ const w = copy.why;
         </li>
       ))}
     </ol>
-    <!-- Full-frame gallery at each photo's own ratio. Scrolls sideways on phones. -->
+    <!-- Full-frame gallery at each photo's own ratio. Scrolls sideways on phones; one row on desktop. -->
     <div
-      class="flex snap-x snap-mandatory items-end gap-3 overflow-x-auto px-4 md:flex-wrap md:gap-6 md:overflow-visible md:px-0"
+      class="flex snap-x snap-mandatory items-end gap-3 overflow-x-auto px-4 md:grid md:grid-flow-col md:auto-cols-fr md:gap-5 md:overflow-visible md:px-0"
       role="region"
       aria-label="Sample photos"
       tabindex="0"
     >
       {w.gallery.map((g) => (
-        <Photo file={g.image} alt={g.alt} class="h-[300px] w-auto flex-none snap-start md:h-[400px]" />
+        <Photo file={g.image} alt={g.alt} class="h-[300px] w-auto flex-none snap-start md:h-auto md:w-full" sizes="(min-width: 768px) 240px, 200px" />
       ))}
-      <div class="placeholder h-[300px] w-[200px] flex-none snap-start md:h-[400px] md:min-w-[200px] md:flex-1">{w.galleryPlaceholder}</div>
+      {w.galleryPlaceholder && (
+        <div class="placeholder h-[300px] w-[200px] flex-none snap-start md:h-auto md:w-full md:self-stretch">{w.galleryPlaceholder}</div>
+      )}
     </div>
   </div>
 </section>
