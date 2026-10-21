@@ -12,7 +12,7 @@ const p = copy.photographer;
       <Headline text={p.headline} accent={p.headlineAccent} class="text-display-md md:text-display-lg" />
     </div>
     <div class="md:col-start-1 md:row-span-2 md:row-start-1">
-      <Photo file={p.image} alt={p.imageAlt} placeholder={p.imagePlaceholder} class="aspect-[4/3] w-full md:aspect-[4/5]" />
+      <Photo file={p.image} alt={p.imageAlt} placeholder={p.imagePlaceholder} class="aspect-[4/3] w-full object-cover object-[50%_35%] md:aspect-[4/5]" />
     </div>
     <div class="flex flex-col gap-[18px] md:col-start-2 md:row-start-2 md:gap-5">
       <p class="md:text-body-lg">{p.body}</p>
