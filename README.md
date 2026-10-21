@@ -60,9 +60,9 @@ Each image is checked at build time. If a file is missing, a labelled placeholde
 | --- | --- | --- |
 | `public/images/family-santa.jpg` | Hero, in the arch (DSCF0567) | Added |
 | `public/images/santa-bench.jpg` | Santa on the bench, mirrored to face the text | Added |
-| `public/images/kids-santa-bench.jpg`, `kids-tree.jpg`, `girl-santa.jpg`, `couple-dog-tree.jpg`, `santa-dogs.jpg` | "Why families book" gallery | Added |
+| `public/images/kids-santa-bench.jpg`, `family-sunset.jpg`, `girl-santa.jpg`, `couple-dog-tree.jpg`, `santa-dogs.jpg` | "Why families book" gallery | Added |
 | `public/images/couple-dog.jpg` | The wide band above the beaches (DSCF0749, landscape) | Added |
-| `public/images/couple-tree.jpg` | Offer section (DSCF0759) | Added |
+| `public/images/kids-tree.jpg` | Offer section (DSCF0477, kids decorating the tree) | Added |
 | `public/images/og.jpg` | Social share image, 1200 × 630, cropped from DSCF0749 | Added |
 | `public/images/laurel.jpg` | Meet your photographer | **To add**: a photo of Laurel at work |
 | `public/brand/santa-sol-stacked.svg` | Desktop header, footer | **To add** from Iris's design system › Logos |
