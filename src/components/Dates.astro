@@ -1,0 +1,83 @@
+---
+// Homepage "Pick your beach": one row per beach, each linking to that beach on /book.
+// Opening a new weekend only changes src/content/beaches.json, never this layout.
+import Headline from './Headline.astro';
+import Photo from './Photo.astro';
+import WaitlistForm from './WaitlistForm.astro';
+import copy from '../content/booking.json';
+import site from '../content/site.json';
+import beachData from '../content/beaches.json';
+const d = copy.dates;
+const beaches = beachData.beaches;
+---
+<section id="dates" aria-labelledby="dates-title">
+  <!-- The one wide photo band (people in it, so nothing overlaps it). Brand v1.1: crop no wider than 2:1. -->
+  <div class="aspect-[4/3] overflow-hidden bg-raised md:aspect-[2/1]">
+    <Photo file={d.bandImage} alt={d.bandAlt} cover sizes="100vw" />
+  </div>
+
+  <div class="mx-auto flex max-w-[1296px] flex-col gap-5 px-4 pb-14 pt-10 md:gap-8 md:px-[72px] md:pb-24 md:pt-[72px]">
+    <div class="flex flex-col gap-5 md:flex-row md:flex-wrap md:gap-x-[72px] md:gap-y-10 md:rounded-card md:border md:border-line md:bg-raised md:p-14">
+      <div class="flex flex-col gap-4 md:min-w-[320px] md:flex-1">
+        <Headline id="dates-title" text={d.headline} accent={d.headlineAccent} class="text-display-md md:text-display-lg" />
+        <p class="md:text-body-lg">{d.lead}</p>
+        <div class="flex flex-col gap-1 border-y border-line py-4 md:mt-2 md:border-b-0 md:pb-0 md:pt-5">
+          <p class="signoff md:text-[22px] md:leading-[1.25]">{d.santaOptional}</p>
+          <p class="under text-body">{d.santaOptionalUnder}</p>
+        </div>
+      </div>
+
+      <div class="flex min-w-0 flex-col gap-5 md:flex-[1.4]">
+        <!-- Phones: tappable rows. Desktop: a table. -->
+        <ul class="m-0 list-none overflow-hidden rounded-card border border-line bg-raised p-0 md:hidden">
+          {beaches.map((b, i) => (
+            <li class:list={[i < beaches.length - 1 && 'border-b border-line']}>
+              <a href={`/book#${b.id}`} class="flex min-h-11 items-center justify-between gap-3 px-4 py-3.5 text-text no-underline" data-event="cta_click" data-section="dates_row">
+                <span>
+                  <strong class="block font-semibold">{b.name}</strong>
+                  <span class="text-muted">{b.day} · {d.nextLabel} {b.dates[0]?.label}</span>
+                </span>
+                <span class="font-semibold text-accent">{d.seeTimes}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+        <div class="hidden overflow-hidden rounded-card border border-line md:block">
+          <table class="w-full border-collapse text-body">
+            <caption class="sr-only">Beaches, days and next session dates</caption>
+            <thead>
+              <tr>
+                {d.columns.map((c) => (
+                  <th scope="col" class="eyebrow border-b border-line px-4 py-3.5 text-left">{c}</th>
+                ))}
+                <th scope="col" class="border-b border-line px-4 py-3.5"><span class="sr-only">{d.seeTimes}</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              {beaches.map((b, i) => {
+                const cell = i < beaches.length - 1 ? 'border-b border-line px-4 py-3.5' : 'px-4 py-3.5';
+                return (
+                  <tr>
+                    <th scope="row" class:list={[cell, 'text-left font-semibold']}>{b.name}</th>
+                    <td class={cell}>{b.day}</td>
+                    <td class={cell}>{b.dates[0]?.label}</td>
+                    <td class:list={[cell, 'text-right']}>
+                      <a href={`/book#${b.id}`} class="font-semibold" data-event="cta_click" data-section="dates_row">{d.seeTimes}</a>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+        <p>{d.pattern}</p>
+        <p class="under">{d.note}</p>
+        <div>
+          <a class="btn w-full md:w-auto" href={site.bookingUrl} data-event="cta_click" data-section="dates">{d.button}</a>
+        </div>
+      </div>
+    </div>
+
+    <WaitlistForm />
+  </div>
+</section>

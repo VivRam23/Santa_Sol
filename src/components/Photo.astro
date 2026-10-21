@@ -1,0 +1,58 @@
+---
+// A photo from /public/images at its own ratio (the full frame: 6px corners, nothing over it).
+// If the file has not been added yet, a labelled placeholder takes its place.
+import { asset } from '../lib/assets';
+
+interface Props {
+  file: string;
+  alt: string;
+  class?: string;
+  /** Hero image: load eagerly with high priority. */
+  priority?: boolean;
+  /** Fill the parent box (object-fit: cover), e.g. inside the arch or the wide band. */
+  cover?: boolean;
+  objectPosition?: string;
+  placeholder?: string;
+  sizes?: string;
+}
+
+const {
+  file,
+  alt,
+  class: className = '',
+  priority = false,
+  cover = false,
+  objectPosition = '50% 50%',
+  placeholder,
+  sizes,
+} = Astro.props;
+
+const img = asset('images', file);
+const label = placeholder ?? `[PHOTO TO ADD] public/images/${file}`;
+---
+{img ? (
+  <img
+    src={img.src}
+    width={img.width}
+    height={img.height}
+    alt={alt}
+    sizes={sizes}
+    loading={priority ? 'eager' : 'lazy'}
+    decoding={priority ? 'sync' : 'async'}
+    fetchpriority={priority ? 'high' : 'auto'}
+    class:list={[
+      'block',
+      cover ? 'h-full w-full object-cover' : 'h-auto max-w-full rounded-photo',
+      className,
+    ]}
+    style={cover ? `object-position: ${objectPosition}` : undefined}
+  />
+) : (
+  <div
+    role="img"
+    aria-label={alt}
+    class:list={['placeholder', cover ? 'h-full w-full rounded-none border-0' : '', className]}
+  >
+    {label}
+  </div>
+)}

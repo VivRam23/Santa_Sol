@@ -1,0 +1,12 @@
+---
+// The brand headline pattern: roman, then the red italic half on its own line.
+interface Props {
+  as?: 'h1' | 'h2';
+  text: string;
+  accent?: string;
+  class?: string;
+  id?: string;
+}
+const { as: Tag = 'h2', text, accent, class: className = '', id } = Astro.props;
+---
+<Tag id={id} class={className}>{text}{accent && <> <em>{accent}</em></>}</Tag>

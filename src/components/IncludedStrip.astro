@@ -1,0 +1,16 @@
+---
+import Icon from './Icon.astro';
+import copy from '../content/booking.json';
+const s = copy.included;
+type IconName = 'lock' | 'feet' | 'sunset' | 'camera' | 'clock' | 'mail';
+---
+<section aria-label={s.label} class="border-y border-line bg-raised">
+  <ul class="mx-auto grid max-w-[1296px] list-none grid-cols-2 gap-x-3 gap-y-4 px-4 py-6 text-body font-medium md:grid-cols-6 md:gap-4 md:px-[72px] md:py-9 md:text-center">
+    {s.items.map((item) => (
+      <li class="flex items-center gap-2.5 md:flex-col">
+        <Icon name={item.icon as IconName} size={44} class="size-9 md:size-11" />
+        <span>{item.text}</span>
+      </li>
+    ))}
+  </ul>
+</section>

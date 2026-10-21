@@ -1,0 +1,27 @@
+---
+// /book: choose a beach, then book a time and pay inside that beach's Calendly calendar.
+// Design: "v3 Booking page /book" artboards on the Santa & Sol booking page canvas.
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Headline from '../components/Headline.astro';
+import BeachPicker from '../components/BeachPicker.astro';
+import WaitlistForm from '../components/WaitlistForm.astro';
+import Footer from '../components/Footer.astro';
+import book from '../content/book.json';
+---
+<Base page="book" title={book.seo.title} description={book.seo.description}>
+  <Header variant="book" />
+  <main id="main">
+    <section class="mx-auto flex max-w-[1296px] flex-col gap-3.5 px-4 pb-7 pt-4 md:gap-[18px] md:px-[72px] md:pb-12 md:pt-8">
+      <Headline as="h1" text={book.headline} accent={book.headlineAccent} class="text-[40px] leading-[1.02] md:text-display-xl" />
+      <p class="md:max-w-[560px] md:text-body-lg">{book.lead}</p>
+    </section>
+
+    <BeachPicker />
+
+    <section class="mx-auto max-w-[1296px] px-4 pb-10 md:px-[72px] md:pb-24">
+      <WaitlistForm />
+    </section>
+  </main>
+  <Footer />
+</Base>

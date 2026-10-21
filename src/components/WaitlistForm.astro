@@ -1,0 +1,117 @@
+---
+// Secondary action: a link-style button so "Book your Santa photos" stays the main one.
+// Posts to site.waitlistEndpoint (a form service such as Formspree). Until that is set,
+// the form validates and shows the success message but sends nothing (logged as a TODO).
+import copy from '../content/booking.json';
+import site from '../content/site.json';
+const w = copy.dates.waitlist;
+---
+<form
+  id="waitlist"
+  class="flex flex-col gap-3.5 rounded-card border-[1.5px] border-dashed border-line p-5 md:gap-5 md:px-14 md:py-8"
+  method="post"
+  action={site.waitlistEndpoint || undefined}
+  data-endpoint={site.waitlistEndpoint}
+  novalidate
+>
+  <p class="md:text-body-lg">{w.line}</p>
+  <div class="grid gap-3.5 md:grid-cols-4 md:gap-4">
+    <label class="field">
+      {w.fields.name}
+      <input type="text" name="name" autocomplete="name" required aria-describedby="waitlist-error-name" />
+      <span id="waitlist-error-name" class="hidden text-small font-normal text-accent" data-error>Please add your name.</span>
+    </label>
+    <label class="field">
+      {w.fields.whatsapp}
+      <input type="tel" name="whatsapp" autocomplete="tel" inputmode="tel" required pattern="[+0-9 ()-]{7,}" aria-describedby="waitlist-error-whatsapp" />
+      <span id="waitlist-error-whatsapp" class="hidden text-small font-normal text-accent" data-error>Please add a WhatsApp number, with country code.</span>
+    </label>
+    <label class="field">
+      {w.fields.beach}
+      <select name="beach">
+        {w.beaches.map((b) => <option>{b}</option>)}
+      </select>
+    </label>
+    <label class="field">
+      {w.fields.weekend}
+      <select name="weekend">
+        {w.weekends.map((wk) => <option>{wk}</option>)}
+      </select>
+    </label>
+  </div>
+  <!-- Spam protection: a honeypot field people never see. -->
+  <div aria-hidden="true" class="absolute -left-[9999px]">
+    <label>Leave this empty <input type="text" name="company" tabindex="-1" autocomplete="off" /></label>
+  </div>
+  <input type="hidden" name="utm_source" />
+  <input type="hidden" name="utm_medium" />
+  <input type="hidden" name="utm_campaign" />
+  <div>
+    <button type="submit" class="link-btn text-left">{w.button}</button>
+  </div>
+  <p class="hidden font-semibold text-accent" role="status" data-success>{w.success}</p>
+  <!-- TODO(copy): the three error lines below are placeholders for Peitho to confirm. -->
+  <p class="hidden" role="alert" data-failure>Something went wrong. Please try again, or message us on WhatsApp.</p>
+</form>
+
+<script>
+  import { track } from '../lib/track';
+
+  const form = document.getElementById('waitlist') as HTMLFormElement | null;
+  if (form) {
+    const params = new URLSearchParams(location.search);
+    for (const key of ['utm_source', 'utm_medium', 'utm_campaign']) {
+      const field = form.elements.namedItem(key) as HTMLInputElement | null;
+      if (field) field.value = params.get(key) ?? '';
+    }
+
+    let started = false;
+    form.addEventListener('input', () => {
+      if (!started) {
+        started = true;
+        track('form_start', { section: 'waitlist' });
+      }
+    });
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      let valid = true;
+      for (const input of Array.from(form.querySelectorAll<HTMLInputElement>('input[required]'))) {
+        const ok = input.checkValidity();
+        input.setAttribute('aria-invalid', String(!ok));
+        const error = document.getElementById(input.getAttribute('aria-describedby') ?? '');
+        error?.classList.toggle('hidden', ok);
+        if (!ok && valid) {
+          input.focus();
+          valid = false;
+        }
+      }
+      if (!valid) return;
+
+      const honeypot = form.elements.namedItem('company') as HTMLInputElement | null;
+      const success = form.querySelector('[data-success]');
+      const failure = form.querySelector('[data-failure]');
+      if (honeypot?.value) return;
+
+      const endpoint = form.dataset.endpoint;
+      try {
+        if (endpoint) {
+          const res = await fetch(endpoint, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { Accept: 'application/json' },
+          });
+          if (!res.ok) throw new Error(String(res.status));
+        } else {
+          console.warn('TODO(waitlist): set waitlistEndpoint in src/content/site.json. Nothing was sent.');
+        }
+        track('form_submit', { section: 'waitlist' });
+        form.reset();
+        success?.classList.remove('hidden');
+        failure?.classList.add('hidden');
+      } catch {
+        failure?.classList.remove('hidden');
+      }
+    });
+  }
+</script>

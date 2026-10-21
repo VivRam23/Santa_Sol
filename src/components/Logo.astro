@@ -1,0 +1,35 @@
+---
+// Iris's logo files from /public/brand, used exactly as supplied (never retyped or redrawn).
+// Until a file is added, a labelled placeholder holds its space.
+import { asset } from '../lib/assets';
+
+interface Props {
+  file:
+    | 'santa-sol-stacked.svg'
+    | 'santa-sol-horizontal.svg'
+    | 'symbol-striped-sun.svg'
+    | 'symbol-sun-reversed.svg';
+  alt: string;
+  class?: string;
+  /** Decorative symbols are hidden from screen readers. */
+  decorative?: boolean;
+}
+
+const { file, alt, class: className = '', decorative = false } = Astro.props;
+const logo = asset('brand', file);
+---
+{logo ? (
+  <img
+    src={logo.src}
+    width={logo.width}
+    height={logo.height}
+    alt={decorative ? '' : alt}
+    aria-hidden={decorative ? 'true' : undefined}
+    class:list={['block h-auto', className]}
+  />
+) : decorative ? null : (
+  <span class:list={['placeholder inline-flex', className]}>
+    <span aria-hidden="true">[LOGO TO ADD] public/brand/{file}</span>
+    <span class="sr-only">{alt}</span>
+  </span>
+)}

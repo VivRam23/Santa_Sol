@@ -1,0 +1,25 @@
+---
+import Headline from './Headline.astro';
+import Photo from './Photo.astro';
+import Rich from './Rich.astro';
+import copy from '../content/booking.json';
+const p = copy.photographer;
+---
+<section class="bg-raised">
+  <div class="mx-auto grid max-w-[1296px] gap-[18px] px-4 py-14 md:grid-cols-[minmax(260px,380px)_minmax(0,1fr)] md:gap-x-20 md:gap-y-5 md:px-[72px] md:py-24">
+    <div class="flex flex-col gap-[18px] md:col-start-2 md:row-start-1 md:gap-5">
+      <p class="eyebrow">{p.eyebrow}</p>
+      <Headline text={p.headline} accent={p.headlineAccent} class="text-display-md md:text-display-lg" />
+    </div>
+    <div class="md:col-start-1 md:row-span-2 md:row-start-1">
+      <Photo file={p.image} alt={p.imageAlt} placeholder={p.imagePlaceholder} class="aspect-[4/3] w-full md:aspect-[4/5]" />
+    </div>
+    <div class="flex flex-col gap-[18px] md:col-start-2 md:row-start-2 md:gap-5">
+      <p class="md:text-body-lg">{p.body}</p>
+      <!-- Proof still to collect: both lines stay visible as markers until real evidence replaces them. -->
+      <p><Rich text={p.experience} /></p>
+      <blockquote class="placeholder m-0 justify-start rounded-card p-5 text-left md:p-6"><Rich text={p.testimonial} /></blockquote>
+      <p class="signoff">{p.signoff}</p>
+    </div>
+  </div>
+</section>

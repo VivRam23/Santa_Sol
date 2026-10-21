@@ -1,0 +1,15 @@
+---
+// Renders a copy string: **bold** runs and visible [TBD] / [NEEDS PROOF] / [ASSUMPTION] markers.
+import { segments } from '../lib/rich';
+
+interface Props {
+  text: string;
+}
+const { text } = Astro.props;
+const parts = segments(text);
+---
+{parts.map((p) =>
+  p.kind === 'bold' ? <strong class="font-semibold">{p.value}</strong>
+  : p.kind === 'marker' ? <span class="tbd">{p.value}</span>
+  : p.value
+)}

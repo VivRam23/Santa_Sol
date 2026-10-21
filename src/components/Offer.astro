@@ -1,0 +1,36 @@
+---
+import Headline from './Headline.astro';
+import Icon from './Icon.astro';
+import Photo from './Photo.astro';
+import Rich from './Rich.astro';
+import copy from '../content/booking.json';
+import site from '../content/site.json';
+const o = copy.offer;
+---
+<!-- Phones: headline, photo, details. Desktop: photo left, headline and details right. -->
+<section class="bg-raised">
+  <div class="mx-auto grid max-w-[1296px] gap-[18px] px-4 py-14 md:grid-cols-[minmax(280px,440px)_minmax(0,1fr)] md:gap-x-20 md:gap-y-6 md:px-[72px] md:py-24">
+    <Headline text={o.headline} accent={o.headlineAccent} class="text-display-md md:col-start-2 md:row-start-1 md:self-end md:text-display-lg" />
+    <div class="md:col-start-1 md:row-span-2 md:row-start-1 md:self-center">
+      <Photo file={o.image} alt={o.imageAlt} class="w-full" sizes="(min-width: 768px) 440px, 100vw" />
+    </div>
+    <div class="flex flex-col gap-[18px] md:col-start-2 md:row-start-2 md:gap-6">
+      <p class="font-display text-[40px] font-[650] leading-none md:text-display-lg">
+        {o.price} <span class="font-sans text-body font-normal text-muted md:text-body-lg">{o.priceUnit}</span>
+      </p>
+      <ul class="m-0 flex list-none flex-col gap-2.5 p-0 md:gap-3 md:text-body-lg">
+        {o.included.map((item) => (
+          <li class="flex gap-2.5 md:gap-3"><Icon name="check" />{item}</li>
+        ))}
+      </ul>
+      <div class="flex flex-col gap-2 border-t border-line pt-4 md:pt-5">
+        <p class="eyebrow">{o.addOnsLabel}</p>
+        {o.addOns.map((a) => <p><Rich text={a} /></p>)}
+      </div>
+      <div class="flex flex-col gap-2 md:items-start">
+        <a class="btn" href={site.bookingUrl} data-event="cta_click" data-section="offer">{o.button}</a>
+        <p class="under text-center md:text-left">{o.under}</p>
+      </div>
+    </div>
+  </div>
+</section>

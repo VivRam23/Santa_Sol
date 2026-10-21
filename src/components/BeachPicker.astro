@@ -1,0 +1,216 @@
+---
+// /book steps 1 and 2: choose a beach, then that beach's Calendly calendar loads beside the price panel.
+// Calendly is loaded only when the calendar is near the screen or a beach is tapped, so the page stays fast.
+import Icon from './Icon.astro';
+import Rich from './Rich.astro';
+import book from '../content/book.json';
+import beachData from '../content/beaches.json';
+
+const beaches = beachData.beaches;
+const p = book.panel;
+
+// Brand colours for the embed (Calendly accepts hex without '#'), and the beach details hidden
+// because the page already shows them.
+const calendlyParams = 'hide_event_type_details=1&background_color=fbf8f3&text_color=2e2621&primary_color=9e2a2f';
+const config = beaches.map((b) => ({
+  id: b.id,
+  name: b.name,
+  url: b.calendlyUrl ? `${b.calendlyUrl}${b.calendlyUrl.includes('?') ? '&' : '?'}${calendlyParams}` : '',
+}));
+---
+<section aria-labelledby="choose-beach" class="mx-auto flex max-w-[1296px] flex-col gap-3 px-4 pb-7 md:gap-5 md:px-[72px] md:pb-10">
+  <h2 id="choose-beach" class="eyebrow font-sans font-medium">{book.stepBeach}</h2>
+  <div class="grid gap-3 md:grid-cols-3 md:gap-6">
+    {beaches.map((b, i) => (
+      <button
+        type="button"
+        id={b.id}
+        class="beach flex w-full cursor-pointer flex-col gap-2 rounded-card border-2 border-line bg-raised p-4 text-left text-body text-text md:gap-4 md:p-7"
+        data-beach={b.id}
+        aria-pressed={i === 0 ? 'true' : 'false'}
+        aria-controls="calendar"
+      >
+        <span class="flex items-center justify-between gap-3">
+          <span class="eyebrow">{b.day}</span>
+          <span class="beach-selected hidden items-center gap-1.5 text-small font-semibold text-accent">
+            <Icon name="check" size={18} />{book.selected}
+          </span>
+        </span>
+        <span class="font-display text-[28px] font-[650] leading-[1.05] md:text-[40px] md:leading-[1.02]">{b.name}</span>
+        <span class="flex flex-wrap gap-2">
+          {b.dates.map((dt) => (
+            <span class="inline-flex min-h-8 items-center rounded-pill border border-line bg-surface px-3.5 py-1 text-sm font-semibold">{dt.label}</span>
+          ))}
+        </span>
+        <span class="flex flex-col gap-1.5 text-sm text-muted">
+          <span>{book.sessions} {beachData.sessionWindow}</span>
+          {b.dogs && (
+            <span class="inline-flex items-center gap-2">
+              <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-accent"><circle cx="6" cy="10" r="1.8" /><circle cx="10" cy="6" r="1.8" /><circle cx="14" cy="6" r="1.8" /><circle cx="18" cy="10" r="1.8" /><path d="M12 11c-3 0-5.5 4-5.5 6.2 0 1.6 1.3 2.3 2.8 2.3 1.2 0 1.8-.6 2.7-.6s1.5.6 2.7.6c1.5 0 2.8-.7 2.8-2.3C17.5 15 15 11 12 11z" /></svg>
+              {book.dogsWelcome}
+            </span>
+          )}
+        </span>
+      </button>
+    ))}
+  </div>
+</section>
+
+<section aria-labelledby="choose-time" class="mx-auto flex max-w-[1296px] flex-col gap-3 px-4 pb-8 md:gap-5 md:px-[72px] md:pb-24">
+  <h2 id="choose-time" class="eyebrow font-sans font-medium">{book.stepTime} · <span data-selected-name>{beaches[0].name}</span></h2>
+  <!-- Calendar and panel share one row: same top edge, same height (desktop). -->
+  <div class="flex flex-col gap-8 md:flex-row md:items-stretch md:gap-12">
+    <div id="calendar" class="flex min-h-[560px] min-w-0 flex-col md:min-h-[680px] md:flex-1" aria-live="polite">
+      <div data-calendar-placeholder data-loading={book.calendarLoading} data-error={book.calendarError} class="placeholder flex-1 flex-col gap-3 rounded-card bg-raised p-8">
+        <Icon name="clock" size={40} />
+        <p data-calendar-message><Rich text={book.calendarTodo} /></p>
+      </div>
+      <div data-calendar-embed class="hidden flex-1 overflow-hidden rounded-card border border-line bg-raised"></div>
+    </div>
+
+    <aside aria-label="Before you book" class="flex flex-col gap-5 rounded-card border border-line bg-raised p-5 text-sm md:w-[380px] md:flex-none md:p-7">
+      <h3 class="text-2xl leading-[1.15] md:text-[28px] md:leading-[1.1]">{p.headline}<br />{p.headlineLine2}</h3>
+      <p class="font-display text-[40px] font-[650] leading-none md:text-display-lg">
+        {p.price} <span class="font-sans text-body font-normal text-muted">{p.priceUnit}</span>
+      </p>
+      <ul class="m-0 flex list-none flex-col gap-2.5 p-0 text-body">
+        {p.included.map((item) => <li class="flex gap-2.5"><Icon name="check" size={22} />{item}</li>)}
+      </ul>
+      <div class="flex flex-col gap-2.5 border-t border-line pt-4">
+        <p class="signoff">{p.santaOptional}</p>
+        <p>{p.santaOptionalUnder}</p>
+      </div>
+      <div class="flex flex-col gap-2.5 border-t border-line pt-4">
+        <p><strong class="font-semibold">{p.arriveQ}</strong> {p.arriveA}</p>
+        <p><strong class="font-semibold">{p.cancelQ}</strong> {p.cancelA}</p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<style>
+  .beach {
+    transition: border-color 150ms;
+  }
+  .beach[aria-pressed='true'] {
+    border-color: var(--ss-text-accent);
+  }
+  .beach[aria-pressed='true'] .beach-selected {
+    display: inline-flex;
+  }
+</style>
+
+<script is:inline type="application/json" id="calendly-config" set:html={JSON.stringify(config)}></script>
+
+<script>
+  import { track } from '../lib/track';
+
+  type Beach = { id: string; name: string; url: string };
+  type CalendlyApi = {
+    initInlineWidget: (opts: { url: string; parentElement: HTMLElement; utm?: Record<string, string> }) => void;
+  };
+
+  const beaches: Beach[] = JSON.parse(document.getElementById('calendly-config')?.textContent ?? '[]');
+  const buttons = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-beach]'));
+  const nameEl = document.querySelector('[data-selected-name]');
+  const calendar = document.getElementById('calendar');
+  const placeholder = document.querySelector<HTMLElement>('[data-calendar-placeholder]');
+  const message = document.querySelector<HTMLElement>('[data-calendar-message]');
+  const todoText = message?.innerHTML ?? '';
+  const embed = document.querySelector<HTMLElement>('[data-calendar-embed]');
+
+  let current = beaches[0];
+  let scriptPromise: Promise<CalendlyApi> | null = null;
+  let wantCalendar = false;
+
+  function loadCalendly(): Promise<CalendlyApi> {
+    if (!scriptPromise) {
+      scriptPromise = new Promise((resolve, reject) => {
+        const s = document.createElement('script');
+        s.src = 'https://assets.calendly.com/assets/external/widget.js';
+        s.async = true;
+        s.onload = () => resolve((window as unknown as { Calendly: CalendlyApi }).Calendly);
+        s.onerror = reject;
+        document.head.appendChild(s);
+      });
+    }
+    return scriptPromise;
+  }
+
+  async function showCalendar(beach: Beach) {
+    if (!embed || !placeholder || !message) return;
+    if (!beach.url) {
+      embed.classList.add('hidden');
+      embed.innerHTML = '';
+      placeholder.classList.remove('hidden');
+      message.innerHTML = todoText;
+      return;
+    }
+    message.textContent = placeholder.dataset.loading ?? '';
+    try {
+      const Calendly = await loadCalendly();
+      if (beach !== current) return;
+      embed.innerHTML = '';
+      embed.classList.remove('hidden');
+      placeholder.classList.add('hidden');
+      const params = new URLSearchParams(location.search);
+      const utm: Record<string, string> = {};
+      for (const key of ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term']) {
+        const v = params.get(key);
+        if (v) utm[key.replace(/_(\w)/g, (_, c: string) => c.toUpperCase())] = v;
+      }
+      Calendly.initInlineWidget({ url: beach.url, parentElement: embed, utm });
+    } catch {
+      message.textContent = placeholder.dataset.error ?? '';
+    }
+  }
+
+  function select(id: string, opts: { load: boolean }) {
+    const beach = beaches.find((b) => b.id === id);
+    if (!beach) return;
+    current = beach;
+    for (const btn of buttons) btn.setAttribute('aria-pressed', String(btn.dataset.beach === id));
+    if (nameEl) nameEl.textContent = beach.name;
+    if (opts.load || wantCalendar) {
+      wantCalendar = true;
+      void showCalendar(beach);
+    } else if (message && placeholder) {
+      message.innerHTML = beach.url ? (placeholder.dataset.loading ?? '') : todoText;
+    }
+  }
+
+  for (const btn of buttons) {
+    btn.addEventListener('click', () => {
+      select(btn.dataset.beach ?? '', { load: true });
+      track('beach_select', { section: 'book', label: btn.dataset.beach ?? '' });
+      if (window.matchMedia('(max-width: 767px)').matches) {
+        calendar?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  }
+
+  // Arriving from a homepage "See times" link (/book#flamingo) preselects that beach.
+  const fromHash = location.hash.slice(1);
+  const preselected = beaches.some((b) => b.id === fromHash);
+  select(preselected ? fromHash : beaches[0]?.id ?? '', { load: preselected });
+
+  // Otherwise load the calendar once it nears the screen.
+  if (!preselected && calendar && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      if (entries.some((e) => e.isIntersecting)) {
+        io.disconnect();
+        select(current.id, { load: true });
+      }
+    }, { rootMargin: '200px' });
+    io.observe(calendar);
+  }
+
+  // A finished booking inside the Calendly embed counts as booking_complete.
+  window.addEventListener('message', (e) => {
+    if (e.origin !== 'https://calendly.com') return;
+    const data = e.data as { event?: string } | null;
+    if (data?.event === 'calendly.event_scheduled') {
+      track('booking_complete', { section: 'book', label: current.id });
+    }
+  });
+</script>
