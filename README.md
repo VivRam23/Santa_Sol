@@ -115,7 +115,7 @@ Content (Viv, Laurel, Peitho):
 - [ ] Weekends to offer in the waitlist.
 - [ ] Laurel's styling tips, or cut the "What should we wear?" question.
 - [x] Laurel's proof line: "Over 100 families photographed." (Viv, Oct 26). Peitho to confirm the wording.
-- [ ] NEEDS PROOF: one family review.
+- [x] Family review: removed from the page for now (Viv, Oct 26). To add one later, fill in `photographer.testimonial` in booking.json.
 - [ ] Peitho to confirm a few lines:
   - the page title and meta description, which are assembled from approved copy
   - the waitlist error messages

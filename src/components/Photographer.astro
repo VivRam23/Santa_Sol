@@ -16,9 +16,9 @@ const p = copy.photographer;
     </div>
     <div class="flex flex-col gap-[18px] md:col-start-2 md:row-start-2 md:gap-5">
       <p class="md:text-body-lg">{p.body}</p>
-      <!-- Proof still to collect: both lines stay visible as markers until real evidence replaces them. -->
       <p><Rich text={p.experience} /></p>
-      <blockquote class="placeholder m-0 justify-start rounded-card p-5 text-left md:p-6"><Rich text={p.testimonial} /></blockquote>
+      <!-- A family review can go here later: add it to photographer.testimonial in booking.json. -->
+      {p.testimonial && <blockquote class="m-0 border-l-2 border-line pl-5 italic md:text-body-lg"><Rich text={p.testimonial} /></blockquote>}
       <p class="signoff">{p.signoff}</p>
     </div>
   </div>
