@@ -63,7 +63,7 @@ Each image is checked at build time. If a file is missing, a labelled placeholde
 | The ten portrait shoot photos | "Why families book" gallery, a row you flick through (order and alt text in `why.gallery` in `src/content/booking.json`) | Added |
 | `public/images/couple-dog.jpg` | The wide band above the beaches (DSCF0749, landscape) | Added |
 | `public/images/kids-tree.jpg` | Offer section (DSCF0477, kids decorating the tree) | Added |
-| `public/images/og.jpg` | Social share image, 1200 × 630, cropped from DSCF0749 | Added |
+| `public/images/og.jpg` | Social share image, 1200 × 630, cropped from DSCF0567 (family with Santa) | Added |
 | `public/images/laurel.jpg` | Meet your photographer (DSCF0038, black and white, from solphotography.net) | Added. A larger original would be sharper |
 | `public/brand/santa-sol-stacked.svg` | Desktop header, footer | Added (from the design canvas) |
 | `public/brand/santa-sol-horizontal.svg` | Mobile header | Added (from the design canvas) |
