@@ -70,24 +70,48 @@
     ],
     "gallery": [
       {
+        "image": "family-santa.jpg",
+        "alt": "A family of five with a barefoot Santa under the palms at sunset"
+      },
+      {
+        "image": "santa-portrait.jpg",
+        "alt": "Santa in a striped shirt, straw hat and sunglasses, sitting under a fringed beach umbrella"
+      },
+      {
         "image": "kids-santa-bench.jpg",
         "alt": "Three children sitting on a bench beside a barefoot Santa, with the sea behind them"
       },
       {
-        "image": "family-sunset.jpg",
-        "alt": "Three children and Santa on a bench by the sea, with the sun setting behind the Christmas tree"
+        "image": "couple-dog.jpg",
+        "alt": "A couple and their dog by a dressed Christmas tree and fringed umbrella on the beach at sunset"
+      },
+      {
+        "image": "kids-tree.jpg",
+        "alt": "A boy and a girl hanging ornaments on a Christmas tree on the beach at golden hour"
       },
       {
         "image": "girl-santa.jpg",
         "alt": "A little girl in a Santa hat sitting with Santa under a beach umbrella"
       },
       {
-        "image": "couple-dog-tree.jpg",
-        "alt": "A couple and their black dog beside a beach Christmas tree at sunset"
+        "image": "family-sunset.jpg",
+        "alt": "Three children and Santa on a bench by the sea, with the sun setting behind the Christmas tree"
+      },
+      {
+        "image": "couple-tree.jpg",
+        "alt": "A couple standing together by a Christmas tree on the beach at sunset"
       },
       {
         "image": "santa-dogs.jpg",
         "alt": "Santa in a striped shirt and Santa hat with two dogs on the beach"
+      },
+      {
+        "image": "couple-dog-tree.jpg",
+        "alt": "A couple and their black dog beside a beach Christmas tree at sunset"
+      },
+      {
+        "image": "santa-set-wide.jpg",
+        "alt": "Santa waiting on a wooden bench beside a dressed Christmas tree and umbrella, palms and sunset sky above"
       }
     ],
     "galleryPlaceholder": ""
