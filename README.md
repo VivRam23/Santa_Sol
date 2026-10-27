@@ -113,7 +113,8 @@ Content (Viv, Laurel, Peitho):
 - [ ] Rain policy when no other date works.
 - [ ] Weekends to offer in the waitlist.
 - [ ] Laurel's styling tips, or cut the "What should we wear?" question.
-- [ ] NEEDS PROOF: Laurel's experience line, and one family review.
+- [x] Laurel's proof line: "Over 100 families photographed." (Viv, Oct 26). Peitho to confirm the wording.
+- [ ] NEEDS PROOF: one family review.
 - [ ] Peitho to confirm a few lines:
   - the page title and meta description, which are assembled from approved copy
   - the waitlist error messages
