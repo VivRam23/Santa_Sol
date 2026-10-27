@@ -19,7 +19,7 @@ const homeHref = variant === 'home' ? '#top' : '/';
 ]}>
   <a href={homeHref} class="block" aria-label={copy.header.logoAlt}>
     <Logo file="santa-sol-horizontal.svg" alt={copy.header.logoAlt} class:list={[variant === 'home' ? 'w-[220px]' : 'w-[168px]', 'md:hidden']} />
-    <Logo file="santa-sol-stacked.svg" alt={copy.header.logoAlt} class:list={['hidden w-auto md:block', variant === 'home' ? 'h-[104px]' : 'h-[88px]']} />
+    <Logo file="santa-sol-stacked.svg" alt={copy.header.logoAlt} class:list={['hidden md:block md:w-auto', variant === 'home' ? 'md:h-[104px]' : 'md:h-[88px]']} />
   </a>
   {variant === 'home' ? (
     <a class="btn hidden md:inline-flex" href={site.bookingUrl} data-event="cta_click" data-section="header">{copy.header.button}</a>
