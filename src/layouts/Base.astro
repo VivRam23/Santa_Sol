@@ -78,7 +78,6 @@ const jsonLd = JSON.stringify(page === 'home' ? [business, ...events, faq] : [bu
     {ogImage && <meta property="og:image" content={new URL(ogImage.src, Astro.site).href} />}
     <meta name="twitter:card" content="summary_large_image" />
 
-    <!-- TODO(brand): add favicon.svg from Iris's design system to /public. -->
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
     <link rel="preload" href="/fonts/Fraunces-Soft.ttf" as="font" type="font/ttf" crossorigin />
