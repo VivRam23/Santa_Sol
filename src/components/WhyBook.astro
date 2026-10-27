@@ -1,11 +1,14 @@
 ---
+// "Why families book": three points, then the photo gallery, the page's key proof.
+// The gallery runs to the screen's right edge so each photo can be shown large:
+// 440px tall on phones (swipe), 640px tall on desktop (swipe, trackpad or the arrow buttons).
 import Photo from './Photo.astro';
 import Rich from './Rich.astro';
 import copy from '../content/booking.json';
 const w = copy.why;
 ---
 <section class="bg-raised">
-  <div class="mx-auto flex max-w-[1296px] flex-col gap-7 py-14 md:gap-12 md:px-[72px] md:py-24">
+  <div class="mx-auto flex max-w-[1296px] flex-col gap-7 pt-14 md:gap-12 md:px-[72px] md:pt-24">
     <h2 class="px-4 text-display-md md:px-0 md:text-display-lg">{w.headline}</h2>
     <ol class="m-0 grid list-none gap-6 p-0 px-4 md:grid-cols-3 md:gap-10 md:px-0">
       {w.points.map((pt) => (
@@ -15,19 +18,106 @@ const w = copy.why;
         </li>
       ))}
     </ol>
-    <!-- Full-frame gallery at each photo's own ratio. Scrolls sideways on phones; one row on desktop. -->
+  </div>
+
+  <div class="flex flex-col gap-4 pb-14 pt-8 md:gap-6 md:pb-24 md:pt-12">
+    <!-- Full-frame photos at their own ratio, starting in line with the text above. -->
     <div
-      class="flex snap-x snap-mandatory items-end gap-3 overflow-x-auto px-4 md:grid md:grid-flow-col md:auto-cols-fr md:gap-5 md:overflow-visible md:px-0"
+      id="gallery"
+      class="gallery flex snap-x snap-mandatory gap-3 overflow-x-auto md:gap-5"
       role="region"
-      aria-label="Sample photos"
+      aria-label="Sample photos from Santa & Sol sessions"
       tabindex="0"
     >
       {w.gallery.map((g) => (
-        <Photo file={g.image} alt={g.alt} class="h-[300px] w-auto flex-none snap-start md:h-auto md:w-full" sizes="(min-width: 768px) 240px, 200px" />
+        <Photo
+          file={g.image}
+          alt={g.alt}
+          class="h-[440px] w-auto flex-none snap-start md:h-[640px]"
+          sizes="(min-width: 768px) 427px, 293px"
+        />
       ))}
       {w.galleryPlaceholder && (
-        <div class="placeholder h-[300px] w-[200px] flex-none snap-start md:h-auto md:w-full md:self-stretch">{w.galleryPlaceholder}</div>
+        <div class="placeholder h-[440px] w-[293px] flex-none snap-start md:h-[640px] md:w-[427px]">{w.galleryPlaceholder}</div>
       )}
+    </div>
+
+    <div class="gallery-controls hidden gap-3 md:flex">
+      <button type="button" class="gallery-btn" data-gallery-dir="-1" aria-label="Previous photos" aria-controls="gallery">
+        <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7" /></svg>
+      </button>
+      <button type="button" class="gallery-btn" data-gallery-dir="1" aria-label="Next photos" aria-controls="gallery">
+        <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7" /></svg>
+      </button>
     </div>
   </div>
 </section>
+
+<style>
+  /* Line the first photo up with the text column; let the row run off the right edge. */
+  .gallery,
+  .gallery-controls {
+    padding-inline: 16px;
+    scroll-padding-inline: 16px;
+  }
+  @media (min-width: 768px) {
+    .gallery,
+    .gallery-controls {
+      padding-inline-start: max(72px, calc((100vw - 1296px) / 2 + 72px));
+      scroll-padding-inline-start: max(72px, calc((100vw - 1296px) / 2 + 72px));
+      padding-inline-end: 72px;
+    }
+  }
+  .gallery {
+    scrollbar-width: none;
+  }
+  .gallery::-webkit-scrollbar {
+    display: none;
+  }
+  .gallery-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: var(--ss-radius-pill);
+    border: 1px solid var(--ss-border);
+    background: var(--ss-surface);
+    color: var(--ss-text);
+    cursor: pointer;
+    transition: border-color 150ms, color 150ms;
+  }
+  .gallery-btn:hover {
+    border-color: var(--ss-text-accent);
+    color: var(--ss-text-accent);
+  }
+  .gallery-btn:disabled {
+    opacity: 0.4;
+    cursor: default;
+  }
+</style>
+
+<script>
+  const gallery = document.getElementById('gallery');
+  const buttons = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-gallery-dir]'));
+
+  function update() {
+    if (!gallery) return;
+    const max = gallery.scrollWidth - gallery.clientWidth - 2;
+    for (const b of buttons) {
+      b.disabled = b.dataset.galleryDir === '-1' ? gallery.scrollLeft <= 2 : gallery.scrollLeft >= max;
+    }
+  }
+
+  for (const b of buttons) {
+    b.addEventListener('click', () => {
+      if (!gallery) return;
+      const step = gallery.clientWidth * 0.8 * Number(b.dataset.galleryDir);
+      const smooth = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      gallery.scrollBy({ left: step, behavior: smooth ? 'smooth' : 'auto' });
+    });
+  }
+  gallery?.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+</script>

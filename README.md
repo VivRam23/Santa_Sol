@@ -60,7 +60,7 @@ Each image is checked at build time. If a file is missing, a labelled placeholde
 | --- | --- | --- |
 | `public/images/family-santa.jpg` | Hero, in the arch (DSCF0567) | Added |
 | `public/images/santa-bench.jpg` | Santa on the bench, mirrored to face the text | Added |
-| `public/images/kids-santa-bench.jpg`, `family-sunset.jpg`, `girl-santa.jpg`, `couple-dog-tree.jpg`, `santa-dogs.jpg` | "Why families book" gallery | Added |
+| All eleven shoot photos | "Why families book" gallery, a row you flick through (order and alt text in `why.gallery` in `src/content/booking.json`) | Added |
 | `public/images/couple-dog.jpg` | The wide band above the beaches (DSCF0749, landscape) | Added |
 | `public/images/kids-tree.jpg` | Offer section (DSCF0477, kids decorating the tree) | Added |
 | `public/images/og.jpg` | Social share image, 1200 × 630, cropped from DSCF0749 | Added |
@@ -113,7 +113,8 @@ Content (Viv, Laurel, Peitho):
 - [ ] Rain policy when no other date works.
 - [ ] Weekends to offer in the waitlist.
 - [ ] Laurel's styling tips, or cut the "What should we wear?" question.
-- [ ] NEEDS PROOF: Laurel's experience line, and one family review.
+- [x] Laurel's proof line: "Over 100 families photographed." (Viv, Oct 26). Peitho to confirm the wording.
+- [ ] NEEDS PROOF: one family review.
 - [ ] Peitho to confirm a few lines:
   - the page title and meta description, which are assembled from approved copy
   - the waitlist error messages

@@ -1,20 +1,28 @@
 ---
+// FAQ: heading on top, questions in two columns on desktop (one on phones).
+// The list is split in half so opening one answer never reshuffles the other column.
 import Logo from './Logo.astro';
 import Rich from './Rich.astro';
 import copy from '../content/booking.json';
 const f = copy.faq;
+const half = Math.ceil(f.items.length / 2);
+const columns = [f.items.slice(0, half), f.items.slice(half)];
 ---
-<section class="faq mx-auto flex max-w-[1296px] flex-col gap-4 px-4 py-14 md:flex-row md:flex-wrap md:gap-x-24 md:gap-y-12 md:px-[72px] md:py-24">
-  <div class="flex flex-col gap-6 md:min-w-[300px] md:flex-1">
-    <Logo file="symbol-striped-sun.svg" alt="" decorative class="hidden w-20 md:block" />
+<section class="faq mx-auto flex max-w-[1296px] flex-col gap-4 px-4 py-14 md:gap-10 md:px-[72px] md:py-24">
+  <div class="flex items-center gap-5">
+    <Logo file="symbol-striped-sun.svg" alt="" decorative class="hidden w-16 md:block" />
     <h2 class="text-display-md md:text-display-lg">{f.headline}</h2>
   </div>
-  <div class="md:min-w-[560px] md:flex-[2]">
-    {f.items.map((item, i) => (
-      <details class:list={['border-t border-line py-2.5 md:py-3.5', i === f.items.length - 1 && 'border-b']}>
-        <summary class="md:text-body-lg">{item.q}</summary>
-        <p class="pb-2 md:mt-2.5"><Rich text={item.a} /></p>
-      </details>
+  <div class="grid md:grid-cols-2 md:gap-x-16">
+    {columns.map((items, i) => (
+      <div class:list={['border-line', i === 0 ? 'md:border-b' : 'border-b']}>
+        {items.map((item) => (
+          <details class="border-t border-line py-2.5 md:py-3">
+            <summary class="md:text-body-lg">{item.q}</summary>
+            <p class="pb-2 md:mt-2"><Rich text={item.a} /></p>
+          </details>
+        ))}
+      </div>
     ))}
   </div>
 </section>
