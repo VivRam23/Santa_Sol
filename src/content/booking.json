@@ -192,8 +192,8 @@
     ],
     "addOnsLabel": "Optional add-ons",
     "addOns": [
-      "Extra photos: [TBD price]",
-      "Christmas cards designed from your gallery and mailed to family: [TBD price, countries, last order date]"
+      "Extra photos, ordered straight from your gallery",
+      "A pack of 24 Christmas cards, designed from your gallery and mailed to family in the US"
     ],
     "button": "Book your Santa photos",
     "under": "Private sunset slot, 5 high-res photos",
@@ -237,7 +237,7 @@
       },
       {
         "q": "Can cards be mailed to Canada or Europe?",
-        "a": "[TBD: depends on where the card service mails to]"
+        "a": "Not yet. For now, cards can only be mailed to addresses in the US."
       },
       {
         "q": "How many people can come?",
