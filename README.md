@@ -108,8 +108,9 @@ Nothing is deployed yet.
 
 Content (Viv, Laurel, Peitho):
 - [x] Session window: 4 – 6 pm (Viv, Oct 19). Laurel to confirm: sunset is around 5:15–5:30 pm in mid-November, so the last slots fall after sunset.
-- [ ] Card service: price, which countries it mails to, and the last order date.
-- [ ] Extra-photo price.
+- [x] Card service: a pack of 24 cards, US addresses only, no price shown (Viv, Oct 26). Still open: the last order date for Christmas delivery.
+- [x] Extra photos: offered without a price on the page (Viv, Oct 26).
+- [ ] Peitho to confirm the reworded add-on lines and the new answer to "Can cards be mailed to Canada or Europe?".
 - [ ] Rain policy when no other date works.
 - [ ] Weekends to offer in the waitlist.
 - [ ] Laurel's styling tips, or cut the "What should we wear?" question.
