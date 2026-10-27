@@ -65,11 +65,11 @@ Each image is checked at build time. If a file is missing, a labelled placeholde
 | `public/images/kids-tree.jpg` | Offer section (DSCF0477, kids decorating the tree) | Added |
 | `public/images/og.jpg` | Social share image, 1200 × 630, cropped from DSCF0749 | Added |
 | `public/images/laurel.jpg` | Meet your photographer (DSCF0038, black and white, from solphotography.net) | Added. A larger original would be sharper |
-| `public/brand/santa-sol-stacked.svg` | Desktop header, footer | **To add** from Iris's design system › Logos |
-| `public/brand/santa-sol-horizontal.svg` | Mobile header | **To add** |
-| `public/brand/symbol-striped-sun.svg` | FAQ mark | **To add** |
-| `public/brand/symbol-sun-reversed.svg` | Closing red band | **To add** |
-| `public/favicon.svg` | Browser tab | **To add** (`favicon.svg` in the design system) |
+| `public/brand/santa-sol-stacked.svg` | Desktop header, footer | Added (from the design canvas) |
+| `public/brand/santa-sol-horizontal.svg` | Mobile header | Added (from the design canvas) |
+| `public/brand/symbol-striped-sun.svg` | FAQ mark | Added (from the design canvas) |
+| `public/brand/symbol-sun-reversed.svg` | Closing red band | Added (from the design canvas) |
+| `public/favicon.svg` | Browser tab | Added (red sun symbol) |
 
 Photos come from the October promo shoot by Laurel (Sol Photography), exported at 1600 px on the long side. Camera data (including any GPS location) is stripped before they go in the repo. To swap a photo, replace the file with the same name; to add one to the gallery, add it to `why.gallery` in `src/content/booking.json`.
 
@@ -130,7 +130,7 @@ Content (Viv, Laurel, Peitho):
 - [ ] Athena: does "Barefoot Santa" stay in the strip now that Santa is optional?
 
 Brand (Iris):
-- [ ] Logo, symbol and favicon files into `public/brand/` (see the table above).
+- [x] Logo, symbol and favicon files into `public/brand/` (see the table above).
 - [ ] Guideline updates:
   - the italic half of a headline goes on its own line
   - no endorsed lockup in the footer
