@@ -48,7 +48,7 @@
     "headlineAccent": "you a seat",
     "body": "Santa & Sol is a **private Christmas portrait session at sunset**. For eight minutes, Santa is there just for you and your family, while Laurel photographs you in golden-hour light.",
     "cardsHeader": "The card that has everyone back home checking flights.",
-    "cardsBody": "Your five photos land in your online gallery within 48 hours. Pick a favorite, design your card online, and get it printed and mailed to your loved ones.",
+    "cardsBody": "Your five photos land in your online gallery within 48 hours. Pick a favorite, design your Christmas card online, and get it printed and mailed to your loved ones.",
     "image": "santa-bench.jpg",
     "imageAlt": "Santa in a striped shirt, straw hat and bare feet, sitting on a bench beside a dressed Christmas tree on the beach at sunset"
   },
@@ -65,7 +65,7 @@
       },
       {
         "title": "In your gallery within 48 hours.",
-        "body": "Your photos are in your gallery within 48 hours of your session, so there's time to order cards and mail them before Christmas [TBD: card service's last order date]."
+        "body": "Your photos are in your gallery within 48 hours of your session, so there's time to order cards and mail them before Christmas."
       }
     ],
     "gallery": [
@@ -205,7 +205,7 @@
     "items": [
       {
         "q": "When will we get our photos?",
-        "a": "Your photos are in your online gallery within 48 hours of your session. For mailed cards, order from your gallery by [TBD: card service's last order date]."
+        "a": "Your photos are in your online gallery within 48 hours of your session, with time to order cards and mail them before Christmas."
       },
       {
         "q": "$95 for five photos?",
