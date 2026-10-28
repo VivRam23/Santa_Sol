@@ -61,7 +61,7 @@ Each image is checked at build time. If a file is missing, a labelled placeholde
 | `public/images/family-santa.jpg` | Hero, in the arch (DSCF0567) | Added |
 | `public/images/santa-bench.jpg` | Santa on the bench, mirrored to face the text | Added |
 | The ten portrait shoot photos | "Why families book" gallery, a row you flick through (order and alt text in `why.gallery` in `src/content/booking.json`) | Added |
-| `public/images/couple-dog.jpg` | The wide band above the beaches (DSCF0749, landscape) | Added at 2576 px wide (Oct 28). A full-size original would be sharper still on large screens |
+| `public/images/couple-dog-2576.jpg` | The wide band above the beaches (DSCF0749, landscape) | Added at 2576 px wide (Oct 28). A full-size original would be sharper still on large screens |
 | `public/images/kids-tree.jpg` | Offer section (DSCF0477, kids decorating the tree) | Added |
 | `public/images/og.jpg` | Social share image, 1200 × 630, cropped from DSCF0567 (family with Santa) | Added |
 | `public/images/laurel.jpg` | Meet your photographer (DSCF0038, black and white, from solphotography.net) | Added. A larger original would be sharper |
