@@ -65,8 +65,10 @@ Each image is checked at build time. If a file is missing, a labelled placeholde
 | `public/images/kids-tree.jpg` | Offer section (DSCF0477, kids decorating the tree) | Added |
 | `public/images/og.jpg` | Social share image, 1200 × 630, cropped from DSCF0567 (family with Santa) | Added |
 | `public/images/laurel.jpg` | Meet your photographer (DSCF0038, black and white, from solphotography.net) | Added. A larger original would be sharper |
-| `public/brand/santa-sol-stacked.svg` | Desktop header, footer | Added (from the design canvas) |
-| `public/brand/santa-sol-horizontal.svg` | Mobile header | Added (from the design canvas) |
+| `public/brand/santa-sol-stacked.svg` | Not used on the site now (kept for reference) | Added (from the design canvas) |
+| `public/brand/santa-sol-horizontal.svg` | Not used now (replaced by the web lockups below) | Added (from the design canvas) |
+| `public/brand/santa-sol-horizontal-web.svg` | Desktop header, footer: Iris's web lockup, larger tagline | Added Oct 28 (Iris, design system) |
+| `public/brand/santa-sol-horizontal-short.svg` | Mobile header: sun and wordmark, no tagline | Added Oct 28 (Iris, design system) |
 | `public/brand/symbol-striped-sun.svg` | FAQ mark | Added (from the design canvas) |
 | `public/brand/symbol-sun-reversed.svg` | Closing red band | Added (from the design canvas) |
 | `public/favicon.svg` | Browser tab | Added (red sun symbol) |
