@@ -18,8 +18,9 @@ const homeHref = variant === 'home' ? '#top' : '/';
   variant === 'home' ? 'justify-center' : 'justify-between',
 ]}>
   <a href={homeHref} class="block" aria-label={copy.header.logoAlt}>
-    <Logo file="santa-sol-horizontal.svg" alt={copy.header.logoAlt} class:list={[variant === 'home' ? 'w-[220px]' : 'w-[168px]', 'md:hidden']} />
-    <Logo file="santa-sol-stacked.svg" alt={copy.header.logoAlt} class:list={['hidden md:block md:w-auto', variant === 'home' ? 'md:h-[104px]' : 'md:h-[88px]']} />
+    <!-- Phones: Iris's short lockup (no descriptor) for narrow screens. Desktop: the web header lockup, tagline readable down to 44px tall. -->
+    <Logo file="santa-sol-horizontal-short.svg" alt={copy.header.logoAlt} class:list={[variant === 'home' ? 'w-[210px]' : 'w-[160px]', 'md:hidden']} />
+    <Logo file="santa-sol-horizontal-web.svg" alt={copy.header.logoAlt} class:list={['hidden md:block md:w-auto', variant === 'home' ? 'md:h-[72px]' : 'md:h-[60px]']} />
   </a>
   {variant === 'home' ? (
     <a class="btn hidden md:inline-flex" href={site.bookingUrl} data-event="cta_click" data-section="header">{copy.header.button}</a>
