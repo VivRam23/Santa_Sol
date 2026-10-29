@@ -16,6 +16,8 @@ const config = beaches.map((b) => ({
   id: b.id,
   name: b.name,
   url: b.calendlyUrl ? `${b.calendlyUrl}${b.calendlyUrl.includes('?') ? '&' : '?'}${calendlyParams}` : '',
+  // Calendly's own page, for phones where the embedded calendar comes up empty (iOS cookie and storage blocking).
+  direct: b.calendlyUrl ?? '',
 }));
 ---
 <section aria-labelledby="choose-beach" class="mx-auto flex max-w-[1296px] flex-col gap-3 px-4 pb-7 md:gap-5 md:px-[72px] md:pb-10">
@@ -67,6 +69,7 @@ const config = beaches.map((b) => ({
       </div>
       <!-- Fixed height: Calendly's iframe is height:100%, and iPhone browsers (WebKit) collapse a percentage of a flex-grown box to nothing. -->
       <div data-calendar-embed class="hidden h-[780px] overflow-hidden rounded-card border border-line bg-raised md:h-[700px]"></div>
+      <a data-calendar-direct data-template={book.calendarDirect} href="#" target="_blank" rel="noopener" class="mt-3 hidden self-start font-semibold text-accent underline underline-offset-4" data-event="cta_click" data-section="book-direct"></a>
     </div>
 
     <aside aria-label="Before you book" class="flex flex-col gap-5 rounded-card border border-line bg-raised p-5 text-sm md:w-[380px] md:flex-none md:p-7">
@@ -106,7 +109,7 @@ const config = beaches.map((b) => ({
 <script>
   import { track } from '../lib/track';
 
-  type Beach = { id: string; name: string; url: string };
+  type Beach = { id: string; name: string; url: string; direct: string };
   type CalendlyApi = {
     initInlineWidget: (opts: { url: string; parentElement: HTMLElement; utm?: Record<string, string> }) => void;
   };
@@ -119,6 +122,18 @@ const config = beaches.map((b) => ({
   const message = document.querySelector<HTMLElement>('[data-calendar-message]');
   const todoText = message?.innerHTML ?? '';
   const embed = document.querySelector<HTMLElement>('[data-calendar-embed]');
+  const direct = document.querySelector<HTMLAnchorElement>('[data-calendar-direct]');
+
+  function updateDirect(beach: Beach) {
+    if (!direct) return;
+    if (!beach.direct) {
+      direct.classList.add('hidden');
+      return;
+    }
+    direct.href = beach.direct;
+    direct.textContent = (direct.dataset.template ?? '').replace('{beach}', beach.name);
+    direct.classList.remove('hidden');
+  }
 
   let current = beaches[0];
   let scriptPromise: Promise<CalendlyApi> | null = null;
@@ -172,6 +187,7 @@ const config = beaches.map((b) => ({
     current = beach;
     for (const btn of buttons) btn.setAttribute('aria-pressed', String(btn.dataset.beach === id));
     if (nameEl) nameEl.textContent = beach.name;
+    updateDirect(beach);
     if (opts.load || wantCalendar) {
       wantCalendar = true;
       void showCalendar(beach);

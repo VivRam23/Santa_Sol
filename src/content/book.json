@@ -1,18 +1,14 @@
 {
   "_source": "Booking page (/book). Headline, lead, panel and FAQ lines reuse Peitho's approved copy. Lines marked 'ui' are short interface labels Daedalus added; Peitho to confirm.",
-
   "seo": {
     "title": "Book your sunset · Santa & Sol",
     "description": "Pick your beach and your time for a private sunset session with a barefoot Santa. $95 per family, five photos in your gallery within 48 hours."
   },
-
   "back": "Back to Santa & Sol",
   "backShort": "Back",
-
   "headline": "Pick your beach.",
   "headlineAccent": "Santa's flexible.",
   "lead": "First sunsets: Nov 13, 14 and 15. When a date's slots are gone, it's full, and new dates open as families sign up.",
-
   "stepBeach": "1 · Choose your beach",
   "stepTime": "2 · Choose your time",
   "selected": "Selected",
@@ -21,7 +17,6 @@
   "calendarLoading": "Loading the calendar…",
   "calendarError": "The calendar didn't load. Please refresh the page, or message us on WhatsApp.",
   "calendarTodo": "[TBD: booking calendar for this beach] Add its Calendly link in src/content/beaches.json.",
-
   "panel": {
     "headline": "One price,",
     "headlineLine2": "everything included",
@@ -38,5 +33,6 @@
     "arriveA": "Please arrive 15 minutes before your slot to settle in and get ready.",
     "cancelQ": "Can we cancel or reschedule?",
     "cancelA": "Sessions are paid in full when you book. If your plans change, we'll do our best to move you to another date, but we can't guarantee a new slot. Missed sessions aren't refunded."
-  }
+  },
+  "calendarDirect": "Calendar not showing? Open the {beach} times in a new tab"
 }
