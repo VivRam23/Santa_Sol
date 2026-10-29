@@ -7,24 +7,39 @@
       "name": "Flamingo",
       "day": "Fridays",
       "dogs": true,
-      "dates": [{ "label": "Nov 13", "iso": "2026-11-13" }],
-      "calendlyUrl": ""
+      "dates": [
+        {
+          "label": "Nov 13",
+          "iso": "2026-11-13"
+        }
+      ],
+      "calendlyUrl": "https://calendly.com/hoho-santasol/30min"
     },
     {
       "id": "playa-grande",
       "name": "Playa Grande",
       "day": "Saturdays",
       "dogs": false,
-      "dates": [{ "label": "Nov 14", "iso": "2026-11-14" }],
-      "calendlyUrl": ""
+      "dates": [
+        {
+          "label": "Nov 14",
+          "iso": "2026-11-14"
+        }
+      ],
+      "calendlyUrl": "https://calendly.com/hoho-santasol/private-christmas-photo-session-clone"
     },
     {
       "id": "tamarindo",
       "name": "Tamarindo",
       "day": "Sundays",
       "dogs": true,
-      "dates": [{ "label": "Nov 15", "iso": "2026-11-15" }],
-      "calendlyUrl": ""
+      "dates": [
+        {
+          "label": "Nov 15",
+          "iso": "2026-11-15"
+        }
+      ],
+      "calendlyUrl": "https://calendly.com/hoho-santasol/private-christmas-photo-session-flamingo-clone"
     }
   ]
 }

@@ -140,7 +140,9 @@ Brand (Iris):
 
 Build:
 - [x] Photos from the promo shoot and Laurel's portrait (Oct 20).
-- [ ] Booking tool: Calendly + PayPal, or SimplyBook + Tilopay. Then the three Calendly links in `src/content/beaches.json`. (If SimplyBook is chosen, `BeachPicker.astro` swaps the Calendly script for SimplyBook's widget.)
+- [x] Booking tool: Calendly (account hoho@santasol.fun) + PayPal. Links added Oct 29.
+- [ ] PayPal payments: connect PayPal Business in Calendly and require $95 USD on all three events. **Until then, slots can be booked without paying.**
+- [ ] Rename the Calendly event links (flamingo, playa-grande, tamarindo) and update `calendlyUrl`. The old links stop working when renamed.
 - [ ] Waitlist form service and `waitlistEndpoint`.
 - [ ] Analytics snippet.
 - [x] Domain: santasol.fun (registered at GoDaddy, Oct 20). Point its DNS at the host when we deploy.
