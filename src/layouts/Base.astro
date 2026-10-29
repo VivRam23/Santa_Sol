@@ -60,16 +60,16 @@ const faq = {
 const jsonLd = JSON.stringify(page === 'home' ? [business, ...events, faq] : [business, ...events]);
 ---
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    <meta name="color-scheme" content="light dark" />
-    <meta name="theme-color" content="#F3EDE4" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#1E1916" media="(prefers-color-scheme: dark)" />
+    <meta name="color-scheme" content="only light" />
+    <!-- Light only: the logo files are dark ink on linen, so the site never switches to dark mode. -->
+    <meta name="theme-color" content="#F3EDE4" />
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
