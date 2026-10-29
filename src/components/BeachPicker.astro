@@ -60,12 +60,13 @@ const config = beaches.map((b) => ({
   <h2 id="choose-time" class="eyebrow font-sans font-medium">{book.stepTime} · <span data-selected-name>{beaches[0].name}</span></h2>
   <!-- Calendar and panel share one row: same top edge, same height (desktop). -->
   <div class="flex flex-col gap-8 md:flex-row md:items-stretch md:gap-12">
-    <div id="calendar" class="flex min-h-[560px] min-w-0 flex-col md:min-h-[680px] md:flex-1" aria-live="polite">
-      <div data-calendar-placeholder data-loading={book.calendarLoading} data-error={book.calendarError} class="placeholder flex-1 flex-col gap-3 rounded-card bg-raised p-8">
+    <div id="calendar" class="flex min-w-0 flex-col md:flex-1" aria-live="polite">
+      <div data-calendar-placeholder data-loading={book.calendarLoading} data-error={book.calendarError} class="placeholder min-h-[560px] flex-1 flex-col gap-3 rounded-card bg-raised p-8 md:min-h-[700px]">
         <Icon name="clock" size={40} />
         <p data-calendar-message><Rich text={book.calendarTodo} /></p>
       </div>
-      <div data-calendar-embed class="hidden flex-1 overflow-hidden rounded-card border border-line bg-raised"></div>
+      <!-- Fixed height: Calendly's iframe is height:100%, and iPhone browsers (WebKit) collapse a percentage of a flex-grown box to nothing. -->
+      <div data-calendar-embed class="hidden h-[780px] overflow-hidden rounded-card border border-line bg-raised md:h-[700px]"></div>
     </div>
 
     <aside aria-label="Before you book" class="flex flex-col gap-5 rounded-card border border-line bg-raised p-5 text-sm md:w-[380px] md:flex-none md:p-7">
