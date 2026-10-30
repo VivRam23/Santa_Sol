@@ -70,10 +70,6 @@
     ],
     "gallery": [
       {
-        "image": "family-santa.jpg",
-        "alt": "A family of five with a barefoot Santa under the palms at sunset"
-      },
-      {
         "image": "santa-portrait.jpg",
         "alt": "Santa in a striped shirt, straw hat and sunglasses, sitting under a fringed beach umbrella"
       },
@@ -108,6 +104,10 @@
       {
         "image": "santa-set-wide.jpg",
         "alt": "Santa waiting on a wooden bench beside a dressed Christmas tree and umbrella, palms and sunset sky above"
+      },
+      {
+        "image": "family-santa.jpg",
+        "alt": "A family of five with a barefoot Santa under the palms at sunset"
       }
     ],
     "galleryPlaceholder": ""
@@ -173,7 +173,10 @@
         "Flamingo"
       ],
       "weekends": [
-        "[TBD: weekends to offer]"
+        "Nov 20–22",
+        "Nov 27–29",
+        "Dec 4–6",
+        "Dec 11–13"
       ],
       "button": "Tell me when new dates open",
       "success": "You're on the list. We'll WhatsApp you as soon as a new sunset opens."
@@ -221,7 +224,7 @@
       },
       {
         "q": "What if it rains?",
-        "a": "December is dry season in Guanacaste. If we have to cancel a session for weather, we'll move you to another date. [TBD: confirm what happens if no date works]"
+        "a": "December is dry season in Guanacaste. If we have to cancel a session for weather, we'll move you to any other date this season."
       },
       {
         "q": "Will Santa be hot in that suit?",
@@ -245,7 +248,7 @@
       },
       {
         "q": "What should we wear?",
-        "a": "[TBD: Laurel's styling tips] [ASSUMPTION: worth adding]"
+        "a": "Comfortable clothes in neutral colors. Keep it simple and skip busy prints and patterns."
       }
     ]
   },
