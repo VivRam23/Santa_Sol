@@ -113,9 +113,9 @@ Content (Viv, Laurel, Peitho):
 - [x] Card service: a pack of 24 cards, US addresses only, no price shown (Viv, Oct 26). No last order date shown on the page (Viv, Oct 26).
 - [x] Extra photos: offered without a price on the page (Viv, Oct 26).
 - [ ] Peitho to confirm the reworded add-on lines and the new answer to "Can cards be mailed to Canada or Europe?".
-- [ ] Rain policy when no other date works.
-- [ ] Weekends to offer in the waitlist.
-- [ ] Laurel's styling tips, or cut the "What should we wear?" question.
+- [x] Rain policy: move to any other date this season (Viv, Oct 30).
+- [x] Waitlist weekends: Nov 20–22, Nov 27–29, Dec 4–6, Dec 11–13 (Viv, Oct 30).
+- [x] What to wear: comfortable, neutral colours, no busy prints (Viv, Oct 30). Peitho to confirm wording.
 - [x] Laurel's proof line: "Over 100 families photographed." (Viv, Oct 26). Peitho to confirm the wording.
 - [x] Family review: removed from the page for now (Viv, Oct 26). To add one later, fill in `photographer.testimonial` in booking.json.
 - [ ] Peitho to confirm a few lines:
