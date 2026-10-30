@@ -109,12 +109,29 @@ const w = copy.why;
     }
   }
 
+  // Step one photo at a time, landing exactly where scroll-snap would (photo's left edge at the padding).
+  function photoStops(): number[] {
+    if (!gallery) return [];
+    const pad = parseFloat(getComputedStyle(gallery).scrollPaddingInlineStart) || 0;
+    const max = gallery.scrollWidth - gallery.clientWidth;
+    const base = gallery.getBoundingClientRect().left - gallery.scrollLeft;
+    return Array.from(gallery.children as HTMLCollectionOf<HTMLElement>).map((el) =>
+      Math.min(max, Math.max(0, el.getBoundingClientRect().left - base - pad)),
+    );
+  }
+
   for (const b of buttons) {
     b.addEventListener('click', () => {
       if (!gallery) return;
-      const step = gallery.clientWidth * 0.8 * Number(b.dataset.galleryDir);
+      const dir = Number(b.dataset.galleryDir);
+      const x = gallery.scrollLeft;
+      const stops = photoStops();
+      const target =
+        dir > 0
+          ? stops.find((s) => s > x + 4) ?? gallery.scrollWidth
+          : [...stops].reverse().find((s) => s < x - 4) ?? 0;
       const smooth = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      gallery.scrollBy({ left: step, behavior: smooth ? 'smooth' : 'auto' });
+      gallery.scrollTo({ left: target, behavior: smooth ? 'smooth' : 'auto' });
     });
   }
   gallery?.addEventListener('scroll', update, { passive: true });
