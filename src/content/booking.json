@@ -70,12 +70,12 @@
     ],
     "gallery": [
       {
-        "image": "santa-portrait.jpg",
-        "alt": "Santa in a striped shirt, straw hat and sunglasses, sitting under a fringed beach umbrella"
-      },
-      {
         "image": "kids-santa-bench.jpg",
         "alt": "Three children sitting on a bench beside a barefoot Santa, with the sea behind them"
+      },
+      {
+        "image": "santa-portrait.jpg",
+        "alt": "Santa in a striped shirt, straw hat and sunglasses, sitting under a fringed beach umbrella"
       },
       {
         "image": "kids-tree.jpg",
