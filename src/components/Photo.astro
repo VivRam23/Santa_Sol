@@ -28,6 +28,8 @@ const {
 } = Astro.props;
 
 const img = asset('images', file);
+// A caller that sets its own height (e.g. the gallery's h-[440px]) must not also get h-auto, which would win and stretch the photo.
+const fixedHeight = /(^|\s)h-\[/.test(className);
 const label = placeholder ?? `[PHOTO TO ADD] public/images/${file}`;
 ---
 {img ? (
@@ -42,7 +44,7 @@ const label = placeholder ?? `[PHOTO TO ADD] public/images/${file}`;
     fetchpriority={priority ? 'high' : 'auto'}
     class:list={[
       'block',
-      cover ? 'h-full w-full object-cover' : 'h-auto max-w-full rounded-photo',
+      cover ? 'h-full w-full object-cover' : fixedHeight ? 'rounded-photo' : 'h-auto max-w-full rounded-photo',
       className,
     ]}
     style={cover ? `object-position: ${objectPosition}` : undefined}
