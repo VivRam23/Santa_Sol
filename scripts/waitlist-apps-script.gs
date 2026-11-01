@@ -59,3 +59,11 @@ function reply_(obj) {
   return ContentService.createTextOutput(JSON.stringify(obj))
     .setMimeType(ContentService.MimeType.JSON);
 }
+
+// Run once from the editor (select "setupHeaders" and click Run) to add the column names now.
+function setupHeaders() {
+  const sheet = SpreadsheetApp.getActive().getSheetByName(SHEET_NAME);
+  if (sheet.getLastRow() === 0) sheet.appendRow(HEADERS);
+  sheet.getRange(1, 1, 1, HEADERS.length).setFontWeight('bold');
+  sheet.setFrozenRows(1);
+}
