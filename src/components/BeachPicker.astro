@@ -60,16 +60,16 @@ const config = beaches.map((b) => ({
 
 <section aria-labelledby="choose-time" class="mx-auto flex max-w-[1296px] flex-col gap-3 px-4 pb-8 md:gap-5 md:px-[72px] md:pb-24">
   <h2 id="choose-time" class="eyebrow font-sans font-medium">{book.stepTime} · <span data-selected-name>{beaches[0].name}</span></h2>
-  <!-- Calendar and panel share one row: same top edge, same height (desktop). -->
+  <!-- Calendar and panel share one row: same top edge, same height (desktop). The "open in a new tab" link sits under the calendar without adding to the row height, so both boxes end on the same line. -->
   <div class="flex flex-col gap-8 md:flex-row md:items-stretch md:gap-12">
-    <div id="calendar" class="flex min-w-0 flex-col md:flex-1" aria-live="polite">
+    <div id="calendar" class="relative flex min-w-0 flex-col md:flex-1" aria-live="polite">
       <div data-calendar-placeholder data-loading={book.calendarLoading} data-error={book.calendarError} class="placeholder min-h-[560px] flex-1 flex-col gap-3 rounded-card bg-raised p-8 md:min-h-[700px]">
         <Icon name="clock" size={40} />
         <p data-calendar-message><Rich text={book.calendarTodo} /></p>
       </div>
       <!-- Fixed height: Calendly's iframe is height:100%, and iPhone browsers (WebKit) collapse a percentage of a flex-grown box to nothing. -->
       <div data-calendar-embed class="hidden h-[620px] overflow-hidden rounded-card border border-line bg-raised md:h-[700px]"></div>
-      <a data-calendar-direct data-template={book.calendarDirect} href="#" target="_blank" rel="noopener" class="mt-3 hidden self-start font-semibold text-accent underline underline-offset-4" data-event="cta_click" data-section="book-direct"></a>
+      <a data-calendar-direct data-template={book.calendarDirect} href="#" target="_blank" rel="noopener" class="mt-3 hidden self-start font-semibold text-accent underline underline-offset-4 md:absolute md:left-0 md:top-full" data-event="cta_click" data-section="book-direct"></a>
     </div>
 
     <aside aria-label="Before you book" class="flex flex-col gap-5 rounded-card border border-line bg-raised p-5 text-sm md:w-[380px] md:flex-none md:p-7">
