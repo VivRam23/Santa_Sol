@@ -8,7 +8,7 @@
 const SHEET_NAME = 'Sheet1';
 const TIMEZONE = 'America/Costa_Rica';
 const HEADERS = ['Signed up', 'Name', 'WhatsApp', 'Preferred beach',
-                 'Preferred weekend', 'Source', 'Medium', 'Campaign', 'Status'];
+                 'Preferred weekend', 'Status'];
 
 // Optional: put an email address between the quotes to get an email for every sign-up.
 const NOTIFY_EMAIL = '';
@@ -38,9 +38,6 @@ function doPost(e) {
       "'" + whatsapp,               // the apostrophe keeps +506 numbers as text
       p.beach || '',
       p.weekend || '',
-      p.utm_source || '',
-      p.utm_medium || '',
-      p.utm_campaign || '',
       'New'
     ]);
   } finally {
