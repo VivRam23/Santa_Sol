@@ -46,7 +46,7 @@
   "session": {
     "headline": "Santa saved",
     "headlineAccent": "you a seat",
-    "body": "Santa & Sol is a **private Christmas portrait session at sunset**. For eight minutes, Santa is there just for you and your family, while Laurel photographs you in golden-hour light.",
+    "body": "Santa & Sol is a **private Christmas mini session at sunset**. Santa is there just for you and your family, while Laurel photographs you in golden-hour light.",
     "cardsHeader": "The card that has everyone back home checking flights.",
     "cardsBody": "Your five photos land in your online gallery within 48 hours. Pick a favorite, design your Christmas card online, and get it printed and mailed to your loved ones.",
     "image": "santa-bench.jpg",
@@ -60,8 +60,8 @@
         "body": "Not a snapshot on the sand: a portrait of your family with Santa, shot by a professional photographer in sunset light. The one you'll want on your own wall."
       },
       {
-        "title": "Eight unhurried minutes, all yours.",
-        "body": "Long enough for Laurel to capture the photos you'll love, short enough that the kids don't get restless. Your time with Santa is booked just for you."
+        "title": "Unhurried, and all yours.",
+        "body": "A private mini session: long enough for Laurel to capture the photos you'll love, short enough that the kids don't get restless. Your time with Santa is booked just for you."
       },
       {
         "title": "In your gallery within 48 hours.",
@@ -121,7 +121,7 @@
       },
       {
         "title": "Meet Santa at sunset.",
-        "body": "Eight relaxed minutes with Santa, the kids and the dog, in golden-hour light. Arrive 15 minutes early to settle in."
+        "body": "A relaxed mini session with Santa, the kids and the dog, in golden-hour light. Arrive 15 minutes early to settle in."
       },
       {
         "title": "Get your photos within 48 hours.",
@@ -188,7 +188,7 @@
     "price": "$95",
     "priceUnit": "per family",
     "included": [
-      "A private 8-minute sunset slot with a barefoot Santa",
+      "A private sunset mini session with a barefoot Santa",
       "Five professionally edited, high-res photos in an online gallery",
       "Gallery delivered within 48 hours",
       "Bring the whole family; dogs welcome in Tamarindo and Flamingo (Fri & Sun)"
@@ -215,8 +215,8 @@
         "a": "It's one flat price for a private slot, a barefoot Santa, a professional photographer and five finished photos. Extra photos and cards are optional."
       },
       {
-        "q": "Is 8 minutes enough?",
-        "a": "It's your own booked slot, so the time with Santa is all yours. Long enough for Laurel to capture the photos you'll love, short enough that the kids don't get restless."
+        "q": "How long is the session?",
+        "a": "About 8 minutes, and that time is all yours. Long enough for Laurel to capture the photos you'll love, short enough that the kids don't get restless."
       },
       {
         "q": "Can we bring the dog?",
