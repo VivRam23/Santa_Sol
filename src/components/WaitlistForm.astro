@@ -4,6 +4,9 @@
 // into the "Waitlist" Google Sheet (script in scripts/waitlist-apps-script.gs). Sent as
 // form-urlencoded so Apps Script reads it from e.parameter without a CORS preflight.
 // If no endpoint is set, the form shows the failure message instead of a false success.
+// Bot protection: Cloudflare Turnstile (site key in site.json). The widget adds a
+// cf-turnstile-response token to the form; the Apps Script verifies it with Cloudflare
+// before saving, so posting straight to the script without a token is rejected.
 import copy from '../content/booking.json';
 import site from '../content/site.json';
 const w = copy.dates.waitlist;
@@ -45,6 +48,9 @@ const w = copy.dates.waitlist;
   <div aria-hidden="true" class="absolute -left-[9999px]">
     <label>Leave this empty <input type="text" name="company" tabindex="-1" autocomplete="off" /></label>
   </div>
+  {site.turnstileSiteKey && (
+    <div class="cf-turnstile" data-sitekey={site.turnstileSiteKey} data-theme="light" data-appearance="interaction-only" data-action="waitlist"></div>
+  )}
   <input type="hidden" name="utm_source" />
   <input type="hidden" name="utm_medium" />
   <input type="hidden" name="utm_campaign" />
@@ -56,8 +62,14 @@ const w = copy.dates.waitlist;
   <p class="hidden" role="alert" data-failure>Something went wrong. Please try again, or message us on WhatsApp.</p>
 </form>
 
+{site.turnstileSiteKey && (
+  <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+)}
+
 <script>
   import { track } from '../lib/track';
+
+  type Turnstile = { reset: (el?: string | HTMLElement) => void };
 
   const form = document.getElementById('waitlist') as HTMLFormElement | null;
   if (form) {
@@ -96,6 +108,13 @@ const w = copy.dates.waitlist;
       if (honeypot?.value) return;
 
       const endpoint = form.dataset.endpoint;
+      const widget = form.querySelector<HTMLElement>('.cf-turnstile');
+      const token = (form.elements.namedItem('cf-turnstile-response') as HTMLInputElement | null)?.value;
+      if (widget && !token) {
+        // The check hasn't finished (or needs a tap): let the visitor complete it, then submit again.
+        failure?.classList.remove('hidden');
+        return;
+      }
       try {
         if (!endpoint) {
           console.warn('waitlist: no waitlistEndpoint in src/content/site.json, so nothing was sent.');
@@ -110,9 +129,11 @@ const w = copy.dates.waitlist;
         if (data && data.ok === false) throw new Error(String(data.error ?? 'rejected'));
         track('form_submit', { section: 'waitlist' });
         form.reset();
+        if (widget) (window as unknown as { turnstile?: Turnstile }).turnstile?.reset(widget);
         success?.classList.remove('hidden');
         failure?.classList.add('hidden');
       } catch {
+        if (widget) (window as unknown as { turnstile?: Turnstile }).turnstile?.reset(widget);
         failure?.classList.remove('hidden');
       }
     });
