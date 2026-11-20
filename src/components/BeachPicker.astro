@@ -12,7 +12,8 @@ const p = book.panel;
 // Brand colours for the embed (Calendly accepts hex without '#'), and the beach details hidden
 // because the page already shows them.
 const calendlyParams = 'hide_event_type_details=1&background_color=fbf8f3&text_color=2e2621&primary_color=9e2a2f';
-const config = beaches.map((b) => ({
+// Only beaches with an open date can be selected; the others show 'New dates soon'.
+const config = beaches.filter((b) => b.dates.length > 0).map((b) => ({
   id: b.id,
   name: b.name,
   url: b.calendlyUrl ? `${b.calendlyUrl}${b.calendlyUrl.includes('?') ? '&' : '?'}${calendlyParams}` : '',
@@ -29,7 +30,8 @@ const config = beaches.map((b) => ({
         id={b.id}
         class="beach flex w-full cursor-pointer flex-col gap-2 rounded-card border-2 border-line bg-raised p-4 text-left text-body text-text md:gap-4 md:p-7"
         data-beach={b.id}
-        aria-pressed={i === 0 ? 'true' : 'false'}
+        disabled={b.dates.length === 0}
+        aria-pressed={i === 0 && b.dates.length > 0 ? 'true' : 'false'}
         aria-controls="calendar"
       >
         <span class="flex items-center justify-between gap-3">
@@ -43,6 +45,9 @@ const config = beaches.map((b) => ({
           {b.dates.map((dt) => (
             <span class="inline-flex min-h-8 items-center rounded-pill border border-line bg-surface px-3.5 py-1 text-sm font-semibold">{dt.label}</span>
           ))}
+          {b.dates.length === 0 && (
+            <span class="inline-flex min-h-8 items-center rounded-pill border border-dashed border-line px-3.5 py-1 text-sm text-muted">{beachData.noDatesLabel}</span>
+          )}
         </span>
         <span class="flex flex-col gap-1.5 text-sm text-muted">
           <span>{book.sessions} {beachData.sessionWindow}</span>
@@ -95,6 +100,10 @@ const config = beaches.map((b) => ({
 <style>
   .beach {
     transition: border-color 150ms;
+  }
+  .beach:disabled {
+    cursor: default;
+    opacity: 0.6;
   }
   .beach[aria-pressed='true'] {
     border-color: var(--ss-text-accent);
