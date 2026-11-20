@@ -144,7 +144,7 @@
   "dates": {
     "headline": "Pick your beach.",
     "headlineAccent": "Santa's flexible.",
-    "lead": "First sunsets: Nov 13, 14 and 15. When a date's slots are gone, it's full, and new dates open as families sign up.",
+    "lead": "Next sunsets: Flamingo on Friday, Dec 4 and Playa Grande on Sunday, Dec 6. When a date's slots are gone, it's full, and new dates open as families sign up.",
     "santaOptional": "Santa's optional. The sunset isn't.",
     "santaOptionalUnder": "Skipping Santa? The Christmas props still come along.",
     "bandImage": "couple-dog-2576.jpg",
@@ -156,8 +156,8 @@
     ],
     "seeTimes": "See times",
     "nextLabel": "next",
-    "pattern": "Every weekend we open: Friday in Flamingo, Saturday at Playa Grande, Sunday in Tamarindo.",
-    "note": "Slots run 10 minutes apart. Dogs welcome in Tamarindo and Flamingo (Fri & Sun).",
+    "pattern": "New dates open as families sign up. Want a different weekend or beach? Join the list below.",
+    "note": "Slots run 10 minutes apart. Dogs welcome in Flamingo and Tamarindo.",
     "button": "Book your Santa photos",
     "waitlist": {
       "line": "Want another weekend or beach? Join the list and we'll message you first when a new sunset opens.",
@@ -180,7 +180,8 @@
       ],
       "button": "Tell me when new dates open",
       "success": "You're on the list. We'll WhatsApp you as soon as a new sunset opens."
-    }
+    },
+    "joinList": "Join the list"
   },
   "offer": {
     "headline": "One price,",
@@ -191,7 +192,7 @@
       "A private sunset mini session with a barefoot Santa",
       "Five professionally edited, high-res photos in an online gallery",
       "Gallery delivered within 48 hours",
-      "Bring the whole family; dogs welcome in Tamarindo and Flamingo (Fri & Sun)"
+      "Bring the whole family; dogs welcome in Flamingo and Tamarindo"
     ],
     "addOnsLabel": "Optional add-ons",
     "addOns": [
@@ -220,7 +221,7 @@
       },
       {
         "q": "Can we bring the dog?",
-        "a": "Yes, at our Tamarindo and Flamingo sessions (Fri & Sun)."
+        "a": "Yes, at our Flamingo and Tamarindo sessions."
       },
       {
         "q": "What if it rains?",
